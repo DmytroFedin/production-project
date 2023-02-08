@@ -3,6 +3,26 @@ import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 
 export const buildloaders = ({ isDev }: BuildOptions): webpack.RuleSetRule[] => {
+  const babelLoader = {
+    test: /\.(js|jsx|tsx)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: 'babel-loader',
+      options: {
+        presets: ['@babel/preset-env'],
+        plugins: [
+          [
+            'i18next-extract',
+            {
+              locales: ['ru', 'en'],
+              keyAsDefaultValue: true,
+            },
+          ],
+        ],
+      },
+    },
+  };
+
   const assetsLoader = {
     test: /\.(png|jpe?g|giff|woff2|woff)$/i,
     type: 'asset/resource',
@@ -40,6 +60,7 @@ export const buildloaders = ({ isDev }: BuildOptions): webpack.RuleSetRule[] => 
   return [
     assetsLoader,
     svgLoader,
+    babelLoader,
     typescriptLoader,
     cssLoader,
   ];
