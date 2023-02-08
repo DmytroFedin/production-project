@@ -4,16 +4,9 @@
   background: var(--inverted-bg-color);
   position: relative;
   transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  
-
-  // &__opened {
-  //   width: var(--sidebar-width);
-  //   transform: translate3d(-var(--sidebar-width), 0, 0);
-  // }
 }
 
 .Fullview {
-  // transform: translate3d(0, 0, 0);
   width: var(--sidebar-width);
 }
 

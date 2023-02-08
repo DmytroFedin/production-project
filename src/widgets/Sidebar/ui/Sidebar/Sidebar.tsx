@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher/ui/LanguageSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
@@ -9,6 +10,7 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
+  const { t } = useTranslation();
   const [fullview, isFullview] = useState(false);
 
   const toggleSidebar = () => {
@@ -24,7 +26,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
       )}
     >
       <button type="button" className={cls.button} onClick={toggleSidebar}>
-        toggle
+        {t('toggle')}
       </button>
       <div className={cls.switchers}>
         <LanguageSwitcher />

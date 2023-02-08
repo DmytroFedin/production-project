@@ -1,15 +1,13 @@
-@import 'reset';
-@import './variables/global';
-@import './themes/dark';
-@import './themes/normal';
-
+@import "reset";
+@import "./variables/global";
+@import "./themes/dark";
+@import "./themes/normal";
 
 .app {
   font: var(--font-m);
   transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   background: var(--bg-color);
   color: var(--primary-color);
-
   min-height: 100vh;
 }
 
