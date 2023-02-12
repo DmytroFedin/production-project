@@ -2,5 +2,8 @@
   "translate_Btn": "English",
   "MainPage_header": "Main Page",
   "LinkMain": "Home",
-  "LinkAbout": "About"
+  "LinkAbout": "About",
+  "NotFound_404": "Page not found",
+  "Error_Boundary_Message": "Something went wrong",
+  "refresh_Page_Btn": "Refresh Page"
 }

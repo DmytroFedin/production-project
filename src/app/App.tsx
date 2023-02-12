@@ -3,11 +3,15 @@ import { UseTheme } from 'app/providers/themeProvider';
 import './styles/index.scss';
 import { Navbar } from 'widgets/navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { AppRouter } from './providers/router';
 
 const App = () => {
   const { theme } = UseTheme();
+
+  // useEffect(() => {
+  //   throw new Error();
+  // }, []);
 
   return (
     <div className={classNames('app', {}, [theme])}>
