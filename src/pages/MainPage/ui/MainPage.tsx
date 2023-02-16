@@ -1,7 +1,10 @@
 import { useTranslation } from 'react-i18next';
-import { PageLoader } from 'widgets/PageLoader';
 
-const MainPage = () => {
+interface MainPageProps {
+  className?: string;
+}
+
+const MainPage = ({ className }: MainPageProps) => {
   const { t } = useTranslation();
 
   return (
