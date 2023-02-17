@@ -2,7 +2,6 @@ import { Theme } from 'app/providers/themeProvider';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator/RouterDecorator';
-import { LanguageDecorator } from '../../src/shared/config/storybook/LanguageDecorator/LanguageDecorator';
 import i18n from './i18n';
 
 export const parameters = {
@@ -17,9 +16,8 @@ export const parameters = {
   locale: 'en',
   locales: {
     en: 'English',
-    ua: 'Українська', 
+    ua: 'Українська',
   },
 };
 
- 
 export const decorators = [ThemeDecorator(Theme.LIGHT), StyleDecorator, RouterDecorator];
