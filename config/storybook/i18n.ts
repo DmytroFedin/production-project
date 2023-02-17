@@ -10,7 +10,8 @@ const resources = ns.reduce((acc, n) => {
     if (!acc[lng]) acc[lng] = {};
     acc[lng] = {
       ...acc[lng],
-      [n]: `../../public/locales/${lng}/${n}.json`,
+      // eslint-disable-next-line import/no-dynamic-require, global-require
+      [n]: require(`../../public/locales/${lng}/${n}.json`),
     };
   });
   return acc;
