@@ -6,6 +6,8 @@
   "LogInBtn": "LogInBtn",
   "MainPage_header": "MainPage_header",
   "NotFound_404": "NotFound_404",
+  "decrement": "decrement",
+  "increment": "increment",
   "refresh_Page_Btn": "refresh_Page_Btn",
   "test": "",
   "toggle": "toggle",
