@@ -6,5 +6,6 @@
   "LinkAbout": "Про Нас",
   "NotFound_404": "Сторінка не знайдена",
   "Error_Boundary_Message": "Непередбачувана помилка",
-  "refresh_Page_Btn": "Обновити Сторінку"
+  "refresh_Page_Btn": "Обновити Сторінку",
+  "LogInBtn": "Увійти"
 }

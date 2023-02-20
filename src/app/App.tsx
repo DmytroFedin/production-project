@@ -1,6 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { UseTheme } from 'app/providers/themeProvider';
-import './styles/index.scss';
 import { Navbar } from 'widgets/navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { Suspense, useEffect } from 'react';
@@ -14,7 +13,7 @@ const App = () => {
   // }, []);
 
   return (
-    <div className={classNames('app', {}, [theme])}>
+    <div className={classNames('app', {}, [])}>
       <Suspense fallback="{}">
         <Navbar className={theme} />
         <div className="page-container">

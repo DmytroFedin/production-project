@@ -3,9 +3,11 @@
   "Error_Boundary_Message": "Error_Boundary_Message",
   "LinkAbout": "LinkAbout",
   "LinkMain": "LinkMain",
+  "LogInBtn": "LogInBtn",
   "MainPage_header": "MainPage_header",
   "NotFound_404": "NotFound_404",
   "refresh_Page_Btn": "refresh_Page_Btn",
+  "test": "test",
   "toggle": "toggle",
   "translate_Btn": "translate_Btn"
 }
