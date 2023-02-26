@@ -7,5 +7,10 @@
   "NotFound_404": "Сторінка не знайдена",
   "Error_Boundary_Message": "Непередбачувана помилка",
   "refresh_Page_Btn": "Обновити Сторінку",
-  "LogInBtn": "Увійти"
+  "LogInBtn": "Увійти",
+  "login_input": "E-mail",
+  "password_input": "Пароль",
+  "Authorisation_header": "Авторизація",
+  "LogOutBtn": "Вийти",
+  "LoginError": "Ви ввели неправильний логін чи пароль"
 }

@@ -1,15 +1,21 @@
 {
   "AboutPage_header": "AboutPage_header",
+  "Authorisation_header": "",
   "Error_Boundary_Message": "Error_Boundary_Message",
   "LinkAbout": "LinkAbout",
   "LinkMain": "LinkMain",
   "LogInBtn": "LogInBtn",
+  "LogOutBtn": "",
+  "LoginError": "",
   "MainPage_header": "MainPage_header",
   "NotFound_404": "NotFound_404",
   "decrement": "decrement",
   "increment": "increment",
+  "login_input": "login_input",
+  "password_input": "password_input",
   "refresh_Page_Btn": "refresh_Page_Btn",
   "test": "",
   "toggle": "toggle",
-  "translate_Btn": "translate_Btn"
+  "translate_Btn": "translate_Btn",
+  "Войти": "Войти"
 }
