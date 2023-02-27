@@ -1,6 +1,6 @@
 import { getUserAuthData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
@@ -29,6 +29,7 @@ export const Navbar = ({ className }: NavbarProps) => {
   const onLogOut = useCallback(() => {
     dispatch(userActions.logOut());
     localStorage.removeItem(USER_LOCALSTORAGE_KEY);
+    setIsAuthModal(false);
   }, [dispatch]);
 
   if (authData) {
@@ -47,7 +48,7 @@ export const Navbar = ({ className }: NavbarProps) => {
       <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onShowModal} className={cls.links}>
         {t('LogInBtn')}
       </Button>
-      <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+      {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
     </div>
   );
 };

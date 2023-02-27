@@ -1,6 +1,8 @@
+import { loginActions } from 'features/AuthByUsername/model/slice/loginSlice';
 import React, {
   ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
+import { useDispatch } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
@@ -9,24 +11,30 @@ interface ModalProps {
   className?: string;
   children?: ReactNode;
   isOpen?: boolean;
+  isDone?: boolean;
   onClose?: () => void;
+  delay?: number;
 }
 
 export const Modal = (props: ModalProps) => {
+  const ANIMATION_DELAY = 350;
   const {
     className,
     children,
     isOpen,
+    isDone,
+    delay = ANIMATION_DELAY,
     onClose,
   } = props;
+  const dispatch = useDispatch();
 
-  const ANIMATION_DELAY = 350;
-
+  const [isOpening, setIsOpening] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const mods: Record<string, boolean> = {
-    [cls.opened]: isOpen,
+    [cls.isOpening]: isOpening,
+    [cls.opened]: (!isOpening && isOpen),
     [cls.isClosing]: isClosing,
   };
 
@@ -34,17 +42,37 @@ export const Modal = (props: ModalProps) => {
     if (onClose) {
       setIsClosing(true);
       timerRef.current = setTimeout(() => {
-        onClose();
         setIsClosing(false);
-      }, ANIMATION_DELAY);
+        onClose();
+      }, delay);
     }
-  }, [onClose]);
+  }, [onClose, delay]);
 
   const onKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       closeHandler();
     }
   }, [closeHandler]);
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsOpening(true);
+      timerRef.current = setTimeout(() => {
+        setIsOpening(false);
+      }, delay);
+    }
+  }, [isOpen, delay]);
+
+  useEffect(() => {
+    if (isDone) {
+      setIsClosing(true);
+      timerRef.current = setTimeout(() => {
+        setIsClosing(false);
+        onClose();
+        dispatch(loginActions.resetDoneStatus());
+      }, delay);
+    }
+  }, [isDone, dispatch, onClose, delay]);
 
   useEffect(() => {
     if (isOpen) {

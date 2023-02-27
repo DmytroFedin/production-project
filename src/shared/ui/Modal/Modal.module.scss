@@ -23,7 +23,6 @@
   border-radius: 15px;
   background: var(--bg-color);
   transition: var(--basic-transition);
-  transform: scale(0.5);
   max-width: 60%;
 }
 
@@ -40,5 +39,11 @@
 .isClosing {
   .content {
     transform: scale(0.2);
+  }
+}
+
+.isOpening {
+  .content {
+    transform: scale(0.5);
   }
 }
