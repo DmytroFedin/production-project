@@ -1,0 +1,21 @@
+{
+  "ProfilePage_header": "Profile",
+  "Edit_btn": "Edit",
+  "FirstName": "Your Firstname",
+  "Lastname": "Your Lastname",
+  "Profile_error_title": "Couldn't fetch profile data",
+  "Profile_error_text": "Try to reload page",
+  "Cancel_btn": "Cancel",
+  "Save_btn": "Save",
+  "Age": "Age",
+  "City": "City",
+  "Username": "Profile username",
+  "Avatar": "Avatar",
+  "Currency_change_select": "Select preferred currency",
+  "Country_change_select": "Choose your country",
+  "Server_error": "Couldn`t save changes",
+  "Incorrect_user_age_error": "Incorrect age",
+  "Incorrect_user_country_error": "Incorrect country",
+  "No_data_error": "Please fill all inputs",
+  "Incorrect_user_data_error": "Firstname and lastname are obligatory"
+}

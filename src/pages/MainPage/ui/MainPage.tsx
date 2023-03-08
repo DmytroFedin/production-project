@@ -1,11 +1,12 @@
 import { Counter } from 'entities/Counter';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 interface MainPageProps {
   className?: string;
 }
 
-const MainPage = ({ className }: MainPageProps) => {
+const MainPage = memo(({ className }: MainPageProps) => {
   const { t } = useTranslation();
 
   return (
@@ -13,6 +14,6 @@ const MainPage = ({ className }: MainPageProps) => {
       {t('MainPage_header')}
     </h2>
   );
-};
+});
 
 export default MainPage;

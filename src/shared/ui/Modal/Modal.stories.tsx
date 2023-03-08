@@ -18,7 +18,6 @@ export const Primary = Template.bind({});
 Primary.args = {
   isOpen: true,
   children: 'text',
-  isDone: false,
   delay: 0,
 };
 Primary.decorators = [StoreDecorator({})];
@@ -27,7 +26,6 @@ export const Dark = Template.bind({});
 Dark.args = {
   isOpen: true,
   children: 'text',
-  isDone: false,
   delay: 0,
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];

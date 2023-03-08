@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "firstname": "Бульбо",
+    "lastname": "Завр",
+    "age": 24,
+    "currency": "UAH",
+    "country": "Ukraine",
+    "city": "Poltava",
+    "username": "admin",
+    "avatar": "https://as2.ftcdn.net/v2/jpg/03/21/43/07/1000_F_321430761_qQi0CU9tzI5w1k1vJgdA02LMtXtsXvJE.jpg"
+  }
 }

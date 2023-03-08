@@ -1,0 +1,22 @@
+.icon {
+  fill: var(--inverted-primary-color);
+}
+
+.item {
+  max-height: 20px;
+}
+
+.link {
+  display: flex;
+  gap: 10px;
+  opacity: 0;
+  transition: var(--basic-transition);
+  width: 0;
+}
+
+.Fullview {
+  .link {
+    opacity: 1;
+    width: auto;
+  }
+}

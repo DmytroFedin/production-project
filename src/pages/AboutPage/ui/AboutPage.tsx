@@ -1,10 +1,11 @@
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 interface AboutPageProps {
   className?: string;
 }
 
-const AboutPage = ({ className }: AboutPageProps) => {
+const AboutPage = memo(({ className }: AboutPageProps) => {
   const { t } = useTranslation('about');
 
   return (
@@ -12,6 +13,6 @@ const AboutPage = ({ className }: AboutPageProps) => {
       {t('AboutPage_header')}
     </h2>
   );
-};
+});
 
 export default AboutPage;
