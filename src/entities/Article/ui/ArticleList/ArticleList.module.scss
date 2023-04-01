@@ -1,0 +1,18 @@
+.PLATE {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.LIST {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  transition: var(--basic-transition);
+}
+
+.ArticleList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -4,6 +4,7 @@
   "MainPage_header": "Main Page",
   "LinkMain": "Home",
   "LinkProfile": "Profile",
+  "LinkArticles": "Articles",
   "LinkAbout": "About",
   "NotFound_404": "Page not found",
   "Error_Boundary_Message": "Something went wrong",
@@ -13,5 +14,11 @@
   "password_input": "Password",
   "Authorisation_header": "Authorisation",
   "LogOutBtn": "Log Out",
-  "LoginError": "Incorrect username or password"
+  "LoginError": "Incorrect username or password",
+  "Send_btn": "Send",
+  "Add_comment_title": "Type a comment",
+  "Comments_not_found": "Leave a first comment",
+  "Comments_header": "Comments",
+  "Create_article": "Create article",
+  "App_name": "Tirli Bom Bom"
 }

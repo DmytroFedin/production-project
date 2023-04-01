@@ -14,8 +14,11 @@ import {
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Page } from 'widgets/Page';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
@@ -51,12 +54,13 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
   const isLoading = useSelector(getProfileIsLoading);
   const readonly = useSelector(getProfileReadonly);
   const validateErrors = useSelector(getProfileValidateErrors);
+  const { id } = useParams<string>();
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
+  useInitialEffect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id));
     }
-  }, [dispatch]);
+  });
 
   const onChangeFirstName = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ firstname: value || '' }));
@@ -101,7 +105,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div>
+      <Page>
         <ProfilePageHeader />
         {validateErrors?.length && validateErrors.map((err) => (
           <Text theme={TextTheme.ERROR} text={validateErrorsTranslate[err]} key={err} />
@@ -121,7 +125,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
           onChangeCountry={onChangeCountry}
           onKeyDown={onKeyDown}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 });

@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from 'app/providers/themeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Text, TextTheme } from './Text';
+import { Text, TextSize, TextTheme } from './Text';
 
 export default {
   title: 'shared/Text',
@@ -17,6 +17,13 @@ export const Primary = Template.bind({});
 Primary.args = {
   title: 'fgfgfgf',
   text: 'fgdgdfgdfgd',
+};
+
+export const Inverted = Template.bind({});
+Inverted.args = {
+  title: 'fgfgfgf',
+  text: 'fgdgdfgdfgd',
+  theme: TextTheme.INVERTED,
 };
 
 export const onlyTitle = Template.bind({});
@@ -54,3 +61,10 @@ onlyTextDark.args = {
   text: 'fgdgdfgdfgd',
 };
 onlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const SizeL = Template.bind({});
+SizeL.args = {
+  title: 'fgfgfgf',
+  text: 'fgdgdfgdfgd',
+  size: TextSize.L,
+};

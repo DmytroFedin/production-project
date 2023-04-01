@@ -26,6 +26,12 @@ Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
   loginForm: {},
 })];
 
+export const Green = Template.bind({});
+Green.args = {};
+Green.decorators = [ThemeDecorator(Theme.GREEN), StoreDecorator({
+  loginForm: {},
+})];
+
 export const AuthNavbar = Template.bind({});
 AuthNavbar.args = {};
 AuthNavbar.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({

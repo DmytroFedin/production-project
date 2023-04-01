@@ -1,0 +1,21 @@
+{
+  "Article_Error": "Couldn`t load article",
+  "Article_not_found": "Article not found",
+  "Articles_Page_header": "Articles",
+  "All_tab_title": "All",
+  "Economics_tab_title": "Economics",
+  "IT_tab_title": "IT",
+  "Science_tab_title": "Science",
+  "Search": "Search",
+  "Sort_title": "Title",
+  "Sort_views": "Views",
+  "Sort_date": "Date",
+  "Sort_descending": "Descending",
+  "Sort_ascending": "Ascending",
+  "Sort_select": "Sort by",
+  "Order_select": "by",
+  "Return_to_articles": "Back to the Articles",
+  "Edit_article_header": "Edit article",
+  "Create_article_header": "Create new article",
+  "Read_article_Btn": "Read more..."
+}

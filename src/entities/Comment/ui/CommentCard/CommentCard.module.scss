@@ -1,0 +1,17 @@
+.CommentCard {
+  padding: 10px;
+  border: 1px solid var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.loading {
+  border: none;
+}

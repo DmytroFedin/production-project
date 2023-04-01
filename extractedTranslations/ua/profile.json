@@ -1,0 +1,21 @@
+{
+  "ProfilePage_header": "Профіль",
+  "Edit_btn": "Редагувати",
+  "Lastname": "Ваше Прізвище",
+  "FirstName": "Ваше Ім'я",
+  "Profile_error_title": "Виникла помилка при завантаженні профіля",
+  "Profile_error_text": "Спробуйте оновити сторінку",
+  "Cancel_btn": "Скасувати",
+  "Save_btn": "Зберегти",
+  "Age": "Вік",
+  "City": "Місто",
+  "Username": "Ім'я користувача",
+  "Avatar": "Аватарка",
+  "Currency_change_select": "Виберіть валюту",
+  "Country_change_select": "Виберіть країну",
+  "Server_error": "Помилка при збереженні",
+  "Incorrect_user_age_error": "Некоректний вік",
+  "Incorrect_user_country_error": "Некоректна країна",
+  "No_data_error": "Вказані не всі дані",
+  "Incorrect_user_data_error": "Ім'я та прізвище обов'язкові"
+}

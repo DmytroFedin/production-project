@@ -1,0 +1,21 @@
+{
+  "Article_Error": "Виникла помилка при завантаженні статті",
+  "Article_not_found": "Статтю не знайдено",
+  "Articles_Page_header": "Статті",
+  "All_tab_title": "Всі",
+  "Economics_tab_title": "Економіка",
+  "IT_tab_title": "ІТ",
+  "Science_tab_title": "Наука",
+  "Search": "Пошук",
+  "Sort_ascending": "Збільшенням",
+  "Sort_descending": "Зменшенням",
+  "Sort_date": "Даті",
+  "Sort_title": "Назві",
+  "Sort_views": "Переглядам",
+  "Sort_select": "Сортувати по",
+  "Order_select": "за",
+  "Return_to_articles": "Назад до Статтей",
+  "Edit_article_header": "Редагування статті номер",
+  "Create_article_header": "Створити нову статтю",
+  "Read_article_Btn": "Читати далі..."
+}

@@ -2,6 +2,10 @@
   color: var(--primary-color);
   display: flex;
   gap: 10px;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .primary {

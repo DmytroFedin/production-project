@@ -1,9 +1,10 @@
 @import "reset";
 @import "./themes/dark";
 @import "./themes/normal";
+@import "./themes/green";
 @import "./variables/global";
 
-body {
+*body {
   color: var(--primary-color);
   font: var(--font-m);
 }
@@ -17,7 +18,24 @@ body {
   display: flex;
 }
 
-.content-wrapper {
-  flex-grow: 1;
-  padding: 20px;
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+*::-webkit-scrollbar-track {
+  background: var(--card-bg);
+}
+
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  background: var(--inverted-primary-color);
+  border-radius: 20px;
+  border: 2px solid var(--primary-color);
+}
+
+/* Handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
 }

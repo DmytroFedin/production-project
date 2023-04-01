@@ -3,6 +3,7 @@
   "translate_Btn_short": "Ua",
   "MainPage_header": "Головна Сторінка",
   "LinkMain": "Головна",
+  "LinkArticles": "Статті",
   "LinkProfile": "Профіль",
   "LinkAbout": "Про Нас",
   "NotFound_404": "Сторінка не знайдена",
@@ -13,5 +14,11 @@
   "password_input": "Пароль",
   "Authorisation_header": "Авторизація",
   "LogOutBtn": "Вийти",
-  "LoginError": "Ви ввели неправильний логін чи пароль"
+  "LoginError": "Ви ввели неправильний логін чи пароль",
+  "Send_btn": "Відправити",
+  "Add_comment_title": "Напишіть коментар",
+  "Comments_not_found": "Залиш перший коментар",
+  "Comments_header": "Коментарі",
+  "Create_article": "Створити статтю",
+  "App_name": "Тірлі Бом Бом"
 }

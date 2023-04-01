@@ -1,9 +1,10 @@
 import { memo, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher/ui/LanguageSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
-import { SidebarItemList } from '../../model/items';
+import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
 
@@ -13,13 +14,14 @@ interface SidebarProps {
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
   const [fullview, isFullview] = useState(false);
+  const sidebarItemList = useSelector(getSidebarItems);
 
   const toggleSidebar = () => {
     isFullview((prev) => !prev);
   };
 
   return (
-    <div
+    <menu
       data-testid="sidebar"
       className={classNames(
         cls.Sidebar,
@@ -39,7 +41,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         {fullview ? '<' : '>'}
       </Button>
       <div className={cls.items}>
-        {SidebarItemList.map((item) => (
+        {sidebarItemList.map((item) => (
           <SidebarItem
             item={item}
             fullview={fullview}
@@ -51,6 +53,6 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         <LanguageSwitcher short={!fullview} />
         <ThemeSwitcher />
       </div>
-    </div>
+    </menu>
   );
 });

@@ -12,6 +12,7 @@ const data = {
   currency: Currency.UAH,
   lastname: 'ggg',
   username: 'ggg',
+  id: '1',
 };
 describe('updateProfileData.test', () => {
   test('success', async () => {

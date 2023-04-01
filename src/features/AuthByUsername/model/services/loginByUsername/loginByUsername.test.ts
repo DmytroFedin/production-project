@@ -8,6 +8,7 @@ describe('loginByUsername.test', () => {
     const thunk = new TestAsyncThunk(loginByUsername);
     thunk.api.post.mockReturnValue(Promise.resolve({ data: testValue }));
     const result = await thunk.callThunk({ username: '123', password: '123' });
+
     expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(testValue));
     expect(thunk.dispatch).toHaveBeenCalledTimes(3);
     expect(thunk.api.post).toHaveBeenCalled();

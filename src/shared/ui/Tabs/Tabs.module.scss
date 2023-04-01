@@ -1,0 +1,11 @@
+.Tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.tabWrapper {
+  display: flex;
+  cursor: pointer;
+}

@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { User, UserSchema } from '../types/user';
 
 const initialState: UserSchema = {
+  mounted: false,
 };
 
 export const userSlice = createSlice({
@@ -13,6 +14,7 @@ export const userSlice = createSlice({
     },
     initAuthData: (state, action: PayloadAction<User>) => {
       state.authData = action.payload;
+      state.mounted = true;
     },
     logOut: (state) => {
       state.authData = undefined;

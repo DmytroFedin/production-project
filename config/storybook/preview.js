@@ -1,8 +1,8 @@
 import { Theme } from 'app/providers/themeProvider';
+import { withRouter } from 'storybook-addon-react-router-v6';
+import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator/RouterDecorator';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator/RouterDecorator';
-import { StoreDecorator } from '../../src/shared/config/storybook/StoreDecorator/StoreDecorator';
 import i18n from './i18n';
 
 export const parameters = {
@@ -21,4 +21,4 @@ export const parameters = {
   },
 };
 
-export const decorators = [ThemeDecorator(Theme.LIGHT), StyleDecorator, RouterDecorator];
+export const decorators = [ThemeDecorator(Theme.LIGHT), StyleDecorator, withRouter];
