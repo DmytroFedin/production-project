@@ -3,7 +3,7 @@ import { ArticleType } from 'entities/Article/model/types/article';
 import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { ArticlePageActions } from 'pages/ArticlesPage';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
-import { useCallback, useMemo } from 'react';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -13,9 +13,9 @@ import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { SortOrder } from 'shared/types/filters/filters';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
-import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
 import {
-  getArticleOrder, getArticleSearch, getArticleSort, getArticleType, getArticleView,
+  getArticleOrder, getArticleSearch, getArticleSort,
+  getArticleView,
 } from '../../model/selectors/articleSort';
 import { ArticleSortActions, ArticleSortReducer } from '../../model/slice/articleSortSlice';
 import { ArticleSort } from '../../ui/ArticleSort/ArticleSort';

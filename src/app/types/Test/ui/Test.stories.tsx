@@ -6,7 +6,7 @@ export default {
   title: 'entitites/Test',
   component: Test,
   argTypes: {
-     backgroundColor: { control: 'color' },
+    backgroundColor: { control: 'color' },
   },
 } as ComponentMeta<typeof Test>;
 

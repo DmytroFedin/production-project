@@ -24,14 +24,14 @@ export const profileSlice = createSlice({
     },
     updateProfile: (state, action: PayloadAction<Profile>) => {
       state.form = {
-        ...state.data,
+        ...state.form,
         ...action.payload,
       };
     },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchProfileData.pending, (state, action) => {
+      .addCase(fetchProfileData.pending, (state) => {
         state.error = undefined;
         state.isLoading = true;
       })
@@ -44,7 +44,7 @@ export const profileSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-      .addCase(updateProfileData.pending, (state, action) => {
+      .addCase(updateProfileData.pending, (state) => {
         state.validateErrors = undefined;
         state.isLoading = true;
       })

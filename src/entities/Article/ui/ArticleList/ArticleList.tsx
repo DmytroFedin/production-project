@@ -1,11 +1,13 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { HTMLAttributeAnchorTarget, memo } from 'react';
+import { FixedSizeList as List, ListChildComponentProps } from 'react-window';
+import InfiniteLoader from 'react-window-infinite-loader';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextSize } from 'shared/ui/Text/Text';
-import cls from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
   className?: string;
@@ -13,12 +15,25 @@ interface ArticleListProps {
   isLoading?: boolean;
   view?: ArticleView;
   target?: HTMLAttributeAnchorTarget;
+  hasMore?: boolean;
+  onLoadNextPart: () => void
 }
 
 export const ArticleList = memo(({
-  className, articles, target, isLoading, view = ArticleView.LIST,
+  className, articles, target, isLoading, onLoadNextPart, hasMore, view = ArticleView.LIST,
 }: ArticleListProps) => {
   const { t } = useTranslation('article');
+
+  const loadMoreItems = () => {};
+
+  const isItemLoaded = (index: number) => !isLoading;
+
+  const Row = useCallback((props: ListChildComponentProps) => {
+    const { data, index, style } = props;
+    return (
+      <ArticleListItem target={target} key={index} article={articles[index]} view={view} />
+    );
+  }, [articles, target, view]);
 
   const renderArticle = (article: Article) => (
     <ArticleListItem target={target} key={article.id} article={article} view={view} />
@@ -38,6 +53,28 @@ export const ArticleList = memo(({
   }
 
   return (
+    // <InfiniteLoader
+    //   isItemLoaded={isItemLoaded}
+    //   itemCount={articles.length}
+    //   loadMoreItems={onLoadNextPart}
+    // >
+    //   {({ onItemsRendered, ref }) => (
+    //     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+    //       <List
+    //         // style={{ overflow: 'visible' }}
+    //         height={700}
+    //         itemCount={articles.length}
+    //         itemSize={700}
+    //         width="100%"
+    //       >
+    //         {Row}
+    //       </List>
+    //       {isLoading && (
+    //         getSkeletons(view)
+    //       )}
+    //     </div>
+    //   )}
+    // </InfiniteLoader>
     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
       {articles.length > 0
         ? articles.map(renderArticle)
