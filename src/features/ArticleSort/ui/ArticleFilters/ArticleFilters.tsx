@@ -1,7 +1,7 @@
 import { ArticleSortField, ArticleView } from 'entities/Article';
 import { ArticleType } from 'entities/Article/model/types/article';
 import { ArticleViewSelector } from 'features/ArticleViewSelector';
-import { ArticlePageActions } from 'pages/ArticlesPage';
+import { ArticlesPageActions } from 'pages/ArticlesPage';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -50,25 +50,25 @@ export const ArticleFilters = ({ className }: ArticlePageFiltersProps) => {
 
   const onChangeSort = useCallback((sort: ArticleSortField) => {
     dispatch(ArticleSortActions.setSort(sort));
-    dispatch(ArticlePageActions.setPage(1));
+    dispatch(ArticlesPageActions.setPage(1));
     fetchData();
   }, [dispatch, fetchData]);
 
   const onChangeOrder = useCallback((order: SortOrder) => {
     dispatch(ArticleSortActions.setOrder(order));
-    dispatch(ArticlePageActions.setPage(1));
+    dispatch(ArticlesPageActions.setPage(1));
     fetchData();
   }, [dispatch, fetchData]);
 
   const onChangeSearch = useCallback((search: string) => {
     dispatch(ArticleSortActions.setSearch(search));
-    dispatch(ArticlePageActions.setPage(1));
+    dispatch(ArticlesPageActions.setPage(1));
     debounceFetchData();
   }, [dispatch, debounceFetchData]);
 
   const onChangeType = useCallback((tab: ArticleType) => {
     dispatch(ArticleSortActions.setType(tab));
-    dispatch(ArticlePageActions.setPage(1));
+    dispatch(ArticlesPageActions.setPage(1));
     fetchData();
   }, [dispatch, fetchData]);
 

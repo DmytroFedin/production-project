@@ -15,7 +15,7 @@ import {
 } from '../model/selectors/articlesPageSelectors';
 import { fetchNextArticlePage } from '../model/services/fetchNextArticle/fetchNextArticlePage';
 import { initArticlePage } from '../model/services/initArticlePage/initArticlePage';
-import { ArticlePageReducer, getArticles } from '../model/slice/articlesPageSlice';
+import { ArticlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -23,7 +23,7 @@ interface ArticlesPageProps {
 }
 
 const reducers: ReducersList = {
-  articlesPage: ArticlePageReducer,
+  articlesPage: ArticlesPageReducer,
 };
 
 const ArticlesPage = ({ className }: ArticlesPageProps) => {
@@ -37,11 +37,15 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const [searchParams] = useSearchParams();
 
   const onLoadNextPart = useCallback(() => {
-    dispatch(fetchNextArticlePage());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchNextArticlePage());
+    }
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(initArticlePage(searchParams));
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(initArticlePage(searchParams));
+    }
   });
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>

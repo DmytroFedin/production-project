@@ -5,7 +5,7 @@ import { ArticleSortActions } from 'features/ArticleSort';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 import { SortOrder } from 'shared/types/filters/filters';
 import { getArticlePageInited } from '../../selectors/articlesPageSelectors';
-import { ArticlePageActions } from '../../slice/articlesPageSlice';
+import { ArticlesPageActions } from '../../slice/articlesPageSlice';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
 export const initArticlePage = createAsyncThunk<
@@ -45,7 +45,7 @@ export const initArticlePage = createAsyncThunk<
           dispatch(ArticleSortActions.setView(initView as ArticleView));
         }
 
-        dispatch(ArticlePageActions.initState());
+        dispatch(ArticlesPageActions.initState());
         dispatch(fetchArticlesList({}));
       }
     },

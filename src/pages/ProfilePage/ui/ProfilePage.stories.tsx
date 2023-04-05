@@ -21,7 +21,7 @@ LightTheme.args = {
 };
 LightTheme.decorators = [StoreDecorator({
   profile: {
-    data: {
+    form: {
       firstname: 'fgfg',
       age: 22,
       city: 'Poltava',
@@ -38,7 +38,24 @@ DarkTheme.args = {
 };
 DarkTheme.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
   profile: {
-    data: {
+    form: {
+      firstname: 'fgfg',
+      age: 22,
+      city: 'Poltava',
+      country: Country.Ukraine,
+      currency: Currency.UAH,
+      lastname: 'ggg',
+      username: 'ggg',
+    },
+  },
+})];
+
+export const GreenTheme = Template.bind({});
+GreenTheme.args = {
+};
+GreenTheme.decorators = [ThemeDecorator(Theme.GREEN), StoreDecorator({
+  profile: {
+    form: {
       firstname: 'fgfg',
       age: 22,
       city: 'Poltava',

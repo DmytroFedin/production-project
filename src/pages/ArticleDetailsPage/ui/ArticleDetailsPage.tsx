@@ -59,7 +59,9 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
         {article && (
           <>
             <Text className={cls.commentHeader} title={t('Comments_header')} />
-            <AddNewComment onSendComment={onSendComment} />
+            {__PROJECT__ !== 'storybook' && (
+              <AddNewComment onSendComment={onSendComment} />
+            )}
             <CommentList
               isLoading={isLoading}
               comments={comments}

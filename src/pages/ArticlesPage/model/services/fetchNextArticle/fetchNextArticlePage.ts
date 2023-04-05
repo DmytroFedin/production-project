@@ -3,7 +3,7 @@ import { ThunkConfig } from 'app/providers/StoreProvider';
 import {
   getArticlePageHasMore, getArticlePageIsLoading, getArticlePageNumber,
 } from '../../selectors/articlesPageSelectors';
-import { ArticlePageActions } from '../../slice/articlesPageSlice';
+import { ArticlesPageActions } from '../../slice/articlesPageSlice';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
 export const fetchNextArticlePage = createAsyncThunk<
@@ -20,7 +20,7 @@ export const fetchNextArticlePage = createAsyncThunk<
       const page = getArticlePageNumber(getState());
 
       if (hasMore && !isLoading) {
-        dispatch(ArticlePageActions.setPage(page + 1));
+        dispatch(ArticlesPageActions.setPage(page + 1));
         dispatch(fetchArticlesList({}));
       }
     },

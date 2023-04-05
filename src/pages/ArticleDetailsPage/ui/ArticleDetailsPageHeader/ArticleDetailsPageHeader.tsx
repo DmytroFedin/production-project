@@ -25,6 +25,7 @@ export const ArticleDetailsPageHeader = ({ className }: ArticleDetailsPageHeader
   const onEditArticle = useCallback(() => {
     navigate(`${RoutePath.article_details}${article?.id}/edit`);
   }, [article?.id, navigate]);
+
   return (
     <div className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>
       <Button onClick={onBackToList}>

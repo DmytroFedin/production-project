@@ -15,7 +15,7 @@ export interface AddNewCommentProps {
   onSendComment: (text: string) => void;
 }
 
-const AddNewComment = memo(({ className, onSendComment }: AddNewCommentProps) => {
+const AddNewComment = (({ className, onSendComment }: AddNewCommentProps) => {
   const { t } = useTranslation();
   const text = useSelector(getNewCommentText);
   const error = useSelector(getNewCommentError);

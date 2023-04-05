@@ -1,23 +1,23 @@
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
-import { ArticlePageActions, ArticlePageReducer } from './articlesPageSlice';
+import { ArticlesPageActions, ArticlesPageReducer } from './articlesPageSlice';
 
 describe('articlesPageSlice.test', () => {
   test('test setPage', () => {
     const state: DeepPartial<ArticlesPageSchema> = {
 
     };
-    expect(ArticlePageReducer(
+    expect(ArticlesPageReducer(
     state as ArticlesPageSchema,
-    ArticlePageActions.setPage(2),
+    ArticlesPageActions.setPage(2),
     )).toEqual({ page: 2 });
   });
 
   test('test initState', () => {
     const state: DeepPartial<ArticlesPageSchema> = {
     };
-    expect(ArticlePageReducer(
+    expect(ArticlesPageReducer(
     state as ArticlesPageSchema,
-    ArticlePageActions.initState(),
+    ArticlesPageActions.initState(),
     )).toEqual({ _inited: true, limit: 9 });
   });
 });

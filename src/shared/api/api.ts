@@ -7,3 +7,10 @@ export const $api = axios.create({
     authorisation: localStorage.getItem(USER_LOCALSTORAGE_KEY) || '',
   },
 });
+
+$api.interceptors.request.use((config) => {
+  if (config.headers) {
+    config.headers.authorisation = localStorage.getItem(USER_LOCALSTORAGE_KEY) || '';
+  }
+  return config;
+});
