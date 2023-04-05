@@ -1,5 +1,5 @@
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
-import { ArticlePageActions, ArticlePageReducer } from './ArticlesPageSlice';
+import { ArticlePageActions, ArticlePageReducer } from './articlesPageSlice';
 
 describe('articlesPageSlice.test', () => {
   test('test setPage', () => {
@@ -18,6 +18,6 @@ describe('articlesPageSlice.test', () => {
     expect(ArticlePageReducer(
     state as ArticlesPageSchema,
     ArticlePageActions.initState(),
-    )).toEqual({ _inited: true });
+    )).toEqual({ _inited: true, limit: 9 });
   });
 });
