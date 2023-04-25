@@ -1,12 +1,13 @@
 import { memo, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { LanguageSwitcher } from 'widgets/LanguageSwitcher/ui/LanguageSwitcher';
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
+import { VStack } from '@/shared/ui/Stack';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
+import { LanguageSwitcher } from '@/features/LanguageSwitcher';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 
 interface SidebarProps {
   className?: string;
@@ -21,7 +22,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   };
 
   return (
-    <menu
+    <section
       data-testid="sidebar"
       className={classNames(
         cls.Sidebar,
@@ -40,7 +41,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
       >
         {fullview ? '<' : '>'}
       </Button>
-      <div className={cls.items}>
+      <VStack role="navigation" gap="15" align="start" className={cls.items}>
         {sidebarItemList.map((item) => (
           <SidebarItem
             item={item}
@@ -48,11 +49,11 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             key={item.path}
           />
         ))}
-      </div>
+      </VStack>
       <div className={cls.switchers}>
         <LanguageSwitcher short={!fullview} />
         <ThemeSwitcher />
       </div>
-    </menu>
+    </section>
   );
 });

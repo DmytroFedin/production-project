@@ -1,14 +1,38 @@
 {
-  "posts": [
+  "notifications": [
     {
       "id": "1",
-      "title": "json-server",
+      "title": "Notification 1",
+      "description": "Something happened",
       "userId": "1"
     },
     {
       "id": "2",
-      "title": "json-server",
-      "userId": "2"
+      "title": "Notification 2",
+      "description": "Something happened",
+      "userId": "2",
+      "href": "http://localhost:3000/admin"
+    },
+    {
+      "id": "3",
+      "title": "Notification 3",
+      "description": "Something happened",
+      "userId": "3",
+      "href": "http://localhost:3000/admin"
+    },
+    {
+      "id": "4",
+      "title": "Notification 4",
+      "description": "Something happened",
+      "userId": "4",
+      "href": "http://localhost:3000/admin"
+    },
+    {
+      "id": "5",
+      "title": "Notification 5",
+      "description": "Something happened",
+      "userId": "5",
+      "href": "http://localhost:3000/admin"
     }
   ],
   "articles": [
@@ -1148,14 +1172,27 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://lirp.cdn-website.com/93aa737e/dms3rep/multi/opt/hacker-computer-systems-1920w.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": [
+        "USER"
+      ],
+      "avatar": "https://cdn.kinandcarta.com/-/media-assets/images/kincarta/insights/2022/02/react-native/react_hero.png?as=0&iar=0&w=1200&rev=61e1dad3af7e465e9544cf8490237772&hash=0AD31383BCBA1DA1C88546327312BA33"
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "123",
+      "roles": [
+        "MANAGER"
+      ],
       "avatar": "https://cdn.kinandcarta.com/-/media-assets/images/kincarta/insights/2022/02/react-native/react_hero.png?as=0&iar=0&w=1200&rev=61e1dad3af7e465e9544cf8490237772&hash=0AD31383BCBA1DA1C88546327312BA33"
     }
   ],
@@ -1166,7 +1203,7 @@
       "lastname": "asf",
       "age": 465,
       "currency": "UAH",
-      "country": "Ukraine",
+      "country": "Poland",
       "city": "Poltava",
       "username": "admin213",
       "avatar": "https://lirp.cdn-website.com/93aa737e/dms3rep/multi/opt/hacker-computer-systems-1920w.jpg"
@@ -1181,6 +1218,58 @@
       "city": "Warsaw",
       "username": "user213",
       "avatar": "https://cdn.kinandcarta.com/-/media-assets/images/kincarta/insights/2022/02/react-native/react_hero.png?as=0&iar=0&w=1200&rev=61e1dad3af7e465e9544cf8490237772&hash=0AD31383BCBA1DA1C88546327312BA33"
+    }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "id": "D62tjgB"
+    },
+    {
+      "userId": "1",
+      "articleId": "12",
+      "rate": 5,
+      "feedback": "test",
+      "id": "VjPdMtA"
+    },
+    {
+      "userId": "1",
+      "articleId": "6",
+      "rate": 4,
+      "id": "VjCkV9m"
+    },
+    {
+      "userId": "1",
+      "articleId": "4",
+      "rate": 4,
+      "id": "8zsM4PS"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "userId": "1",
+      "profileId": "2"
     }
   ]
 }

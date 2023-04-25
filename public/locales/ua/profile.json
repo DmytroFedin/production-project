@@ -17,5 +17,6 @@
   "Incorrect_user_age_error": "Некоректний вік",
   "Incorrect_user_country_error": "Некоректна країна",
   "No_data_error": "Вказані не всі дані",
-  "Incorrect_user_data_error": "Ім'я та прізвище обов'язкові"
+  "Incorrect_user_data_error": "Ім'я та прізвище обов'язкові",
+  "Profile_error": "Профіль не знайдено в системі"
 }

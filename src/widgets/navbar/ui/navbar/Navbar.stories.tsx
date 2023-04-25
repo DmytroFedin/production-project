@@ -1,8 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/themeProvider';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { UserRole } from '@/entities/User';
 import { Navbar } from './Navbar';
+import { Theme } from '@/shared/const/theme';
 
 export default {
   title: 'widgets/Navbar',
@@ -35,5 +36,20 @@ Green.decorators = [ThemeDecorator(Theme.GREEN), StoreDecorator({
 export const AuthNavbar = Template.bind({});
 AuthNavbar.args = {};
 AuthNavbar.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-  user: { authData: {} },
+  user: {
+    authData: {
+      avatar: 'https://lirp.cdn-website.com/93aa737e/dms3rep/multi/opt/hacker-computer-systems-1920w.jpg',
+    },
+  },
+})];
+
+export const AdminNavbar = Template.bind({});
+AdminNavbar.args = {};
+AdminNavbar.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+  user: {
+    authData: {
+      roles: [UserRole.ADMIN],
+      avatar: 'https://lirp.cdn-website.com/93aa737e/dms3rep/multi/opt/hacker-computer-systems-1920w.jpg',
+    },
+  },
 })];

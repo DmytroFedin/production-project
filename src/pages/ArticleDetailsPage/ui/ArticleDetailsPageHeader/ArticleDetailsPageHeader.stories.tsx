@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from 'app/providers/themeProvider';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
 
 export default {
@@ -68,9 +68,9 @@ GreenTheme.decorators = [ThemeDecorator(Theme.GREEN), StoreDecorator({
   },
 })];
 
-export const notAuthed = Template.bind({});
-notAuthed.args = {
+export const notAuthor = Template.bind({});
+notAuthor.args = {
 };
-notAuthed.decorators = [ThemeDecorator(Theme.GREEN), StoreDecorator({
+notAuthor.decorators = [ThemeDecorator(Theme.GREEN), StoreDecorator({
 
 })];

@@ -1,3 +1,3 @@
 export { ArticlesPageAsync as ArticlesPage } from './ui/ArticlesPage.async';
-export { ArticlesPageSchema } from './model/types/articlesPageSchema';
-export { ArticlesPageActions, ArticlesPageReducer } from './model/slice/articlesPageSlice';
+export type { ArticlesPageSchema } from './model/types/articlesPageSchema';
+export { ArticlesPageActions } from './model/slice/articlesPageSlice';

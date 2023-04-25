@@ -1,13 +1,14 @@
 import { Story } from '@storybook/react';
-import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
-import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
-import { profileReducer } from 'entities/Profile';
-import { addNewCommentReducer } from 'features/AddNewComment/model/slice/addNewCommentSlice';
-import { ArticleSortReducer } from 'features/ArticleSort';
-import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
-import { ArticleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slices/ArticleDetailsCommentSlice';
-import { ArticlesPageReducer } from 'pages/ArticlesPage';
-import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
+import { articleDetailsReducer } from '@/entities/Article/testing';
+import { addNewCommentReducer } from '@/features/AddNewComment/testing';
+import { ArticleSortReducer } from '@/features/ArticleSort/testing';
+import { loginReducer } from '@/features/AuthByUsername/testing';
+import { profileReducer } from '@/features/EditableProfileCard/testing';
+import { ArticleDetailsCommentsReducer } from '@/pages/ArticleDetailsPage/testing';
+import { ArticlesPageReducer } from '@/pages/ArticlesPage/testing';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
@@ -17,6 +18,7 @@ const defaultAsyncReducers: ReducersList = {
   articleDetailsComments: ArticleDetailsCommentsReducer,
   articleSort: ArticleSortReducer,
   articlesPage: ArticlesPageReducer,
+  rtkApi: rtkApi.reducer,
 };
 
 export const StoreDecorator = (

@@ -1,7 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Article, ArticleView } from '../../model/types/article';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { Article } from '../../model/types/article';
 import { ArticleList } from './ArticleList';
+import { ArticleView } from '../../model/const/const';
 
 export default {
   title: 'entities/Article/ArticleList',
@@ -9,6 +10,9 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [
+    (Story) => <div style={{ height: '100vh' }}><Story /></div>,
+  ],
 } as ComponentMeta<typeof ArticleList>;
 
 const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
@@ -125,3 +129,25 @@ List.args = {
   view: ArticleView.LIST,
 };
 List.decorators = [StoreDecorator({})];
+
+export const Virtualized = Template.bind({});
+Virtualized.args = {
+  articles: new Array(9).fill(0).map((item, index) => ({
+    ...mock,
+    id: String(index),
+  })),
+  view: ArticleView.LIST,
+  virtualized: true,
+};
+Virtualized.decorators = [StoreDecorator({})];
+
+export const VirtualizedPlate = Template.bind({});
+VirtualizedPlate.args = {
+  articles: new Array(9).fill(0).map((item, index) => ({
+    ...mock,
+    id: String(index),
+  })),
+  view: ArticleView.PLATE,
+  virtualized: true,
+};
+VirtualizedPlate.decorators = [StoreDecorator({})];

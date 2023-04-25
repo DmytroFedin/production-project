@@ -20,5 +20,10 @@
   "Comments_not_found": "Залиш перший коментар",
   "Comments_header": "Коментарі",
   "Create_article": "Створити статтю",
-  "App_name": "Тірлі Бом Бом"
+  "App_name": "Тірлі Бом Бом",
+  "LinkAdminPanel": "Адмінка",
+  "User_access_denied": "У Вас немає доступу до цієї сторінки",
+  "Leave_review": "Залиш відгук",
+  "Close_btn": "Закрити",
+  "Review_thanks_title": "Дякуємо, за Вашу оцінку!"
 }

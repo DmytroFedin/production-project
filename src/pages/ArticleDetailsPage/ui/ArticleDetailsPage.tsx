@@ -1,23 +1,19 @@
-import { ArticleDetails } from 'entities/Article';
-import { getArticleDetailsData } from 'entities/Article/model/selectors/articleDetails';
-import { CommentList } from 'entities/Comment';
-import { AddNewComment } from 'features/AddNewComment';
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Text, TextSize } from 'shared/ui/Text/Text';
-import { Page } from 'widgets/Page';
-import { getArticleDetailsCommentsIsLoading } from '../model/selectors/comments/comments';
-import { addCommentsForArticle } from '../model/services/addCommentsForArticle/addCommentsForArticle';
-import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { ArticleDetailsCommentsReducer, getArticleComments } from '../model/slices/ArticleDetailsCommentSlice';
+import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
+import { getArticleDetailsData, ArticleDetails } from '@/entities/Article';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { VStack } from '@/shared/ui/Stack';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { Page } from '@/widgets/Page';
+import { ArticleDetailsCommentsReducer } from '../model/slices/ArticleDetailsCommentSlice';
+import { ArticleDetailsComments } from './ArticleDetailsComments/ArticleDetailsComments';
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { ArticleRating } from '@/features/ArticleRating';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -26,48 +22,30 @@ interface ArticleDetailsPageProps {
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation(['translation', 'article']);
   const { id } = useParams<{id:string}>();
-  const comments = useSelector(getArticleComments.selectAll);
-  const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
-  const dispatch = useAppDispatch();
   const article = useSelector(getArticleDetailsData);
-
-  const onSendComment = useCallback((text: string) => {
-    dispatch(addCommentsForArticle(text));
-  }, [dispatch]);
 
   const reducers: ReducersList = {
     articleDetailsComments: ArticleDetailsCommentsReducer,
   };
 
-  useInitialEffect(() => {
-    dispatch(fetchCommentsByArticleId(id));
-  });
-
   if (!id) {
     return (
-      <div className={classNames(cls.error, {}, [className])}>
+      <VStack max className={classNames(cls.error, {}, [className])}>
         <Text size={TextSize.L} title={t('Article_not_found', { ns: 'article' })} />
-      </div>
+      </VStack>
     );
   }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <ArticleDetailsPageHeader />
-        <ArticleDetails id={id} />
-        {article && (
-          <>
-            <Text className={cls.commentHeader} title={t('Comments_header')} />
-            {__PROJECT__ !== 'storybook' && (
-              <AddNewComment onSendComment={onSendComment} />
-            )}
-            <CommentList
-              isLoading={isLoading}
-              comments={comments}
-            />
-          </>
-        )}
+        <VStack max gap="15" align="start">
+          <ArticleDetailsPageHeader />
+          <ArticleDetails id={id} />
+          <ArticleRating articleId={id} />
+          <ArticleRecommendationsList />
+          <ArticleDetailsComments render={!!article} id={id} />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   );

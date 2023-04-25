@@ -1,18 +1,29 @@
-.PLATE {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
 .LIST {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
   transition: var(--basic-transition);
 }
 
-.ArticleList {
+.ArticleListWrapper {
+  height: 100%;
+}
+
+// TODO adaptivity
+// .itemContainer,
+// .skeletonGrid,
+// .itemWrapper {
+//   gap: 50px;
+// }
+
+.itemWrapper {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  gap: 50px;
+}
+
+.skeletonGrid {
+  margin-top: 30px;
+}
+
+.ScrollSkeleton {
+  width: 230px;
 }

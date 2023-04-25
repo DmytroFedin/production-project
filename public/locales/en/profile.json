@@ -17,5 +17,6 @@
   "Incorrect_user_age_error": "Incorrect age",
   "Incorrect_user_country_error": "Incorrect country",
   "No_data_error": "Please fill all inputs",
-  "Incorrect_user_data_error": "Firstname and lastname are obligatory"
+  "Incorrect_user_data_error": "Firstname and lastname are obligatory",
+  "Profile_error": "Profile wasn`t found in the system"
 }

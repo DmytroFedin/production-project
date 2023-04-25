@@ -46,7 +46,7 @@ describe('userSlice.test', () => {
     };
     expect(userReducer(
     state as UserSchema,
-    userActions.initAuthData(data),
+    userActions.initAuthData(),
     )).toEqual({ authData: data, mounted: true });
   });
 });

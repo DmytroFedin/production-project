@@ -1,8 +1,9 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { ArticleSortField, ArticleView } from '@/entities/Article';
 import {
   getArticleOrder, getArticleSearch, getArticleSort, getArticleType, getArticleView,
 } from './articleSort';
+import { ArticleType } from '@/shared/const/article';
 
 describe('articleSort.test', () => {
   test('should return sort', () => {

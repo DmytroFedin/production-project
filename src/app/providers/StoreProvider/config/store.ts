@@ -2,10 +2,11 @@ import {
   CombinedState,
   configureStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { counterReducer } from 'entities/Counter';
-import { userReducer } from 'entities/User';
-import { restoreScrollReducer } from 'features/RestoreScroll';
-import { $api } from 'shared/api/api';
+import { counterReducer } from '@/entities/Counter';
+import { userReducer } from '@/entities/User';
+import { restoreScrollReducer } from '@/features/RestoreScroll';
+import { $api } from '@/shared/api/api';
+import { rtkApi } from '@/shared/api/rtkApi';
 import { createReducerManager } from './reducerManager';
 import { StateSchema } from './StateSchema';
 
@@ -18,6 +19,7 @@ export const createReduxStore = (
     counter: counterReducer,
     user: userReducer,
     scroll: restoreScrollReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer,
   };
 
   const reducerManager = createReducerManager(rootReducers);
@@ -32,7 +34,7 @@ export const createReduxStore = (
           api: $api,
         },
       },
-    }),
+    }).concat(rtkApi.middleware),
   });
     // @ts-ignore
   store.reducerManager = reducerManager;

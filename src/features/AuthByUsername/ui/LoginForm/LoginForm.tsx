@@ -1,12 +1,13 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Input } from 'shared/ui/Input/Input';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Input } from '@/shared/ui/Input/Input';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { VStack } from '@/shared/ui/Stack';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
@@ -50,11 +51,10 @@ const LoginForm = memo(({ className, isOpen, onSuccess }: LoginFormProps) => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers}>
-      <div className={classNames(cls.LoginForm, {}, [className])}>
+      <VStack gap="10" className={classNames(cls.LoginForm, {}, [className])}>
         <Text title={t('Authorisation_header')} />
         {error && <Text text={t('LoginError')} theme={TextTheme.ERROR} />}
         <Input
-          className={cls.input}
           type="text"
           title={t('login_input')}
           isOpen={isOpen}
@@ -62,7 +62,6 @@ const LoginForm = memo(({ className, isOpen, onSuccess }: LoginFormProps) => {
           value={username}
         />
         <Input
-          className={cls.input}
           type="text"
           title={t('password_input')}
           onChange={onChangePassword}
@@ -71,7 +70,7 @@ const LoginForm = memo(({ className, isOpen, onSuccess }: LoginFormProps) => {
         <Button disabled={isLoading} className={cls.btn} theme={ButtonTheme.OUTLINED} onClick={onLoginclick}>
           {t('LogInBtn')}
         </Button>
-      </div>
+      </VStack>
     </DynamicModuleLoader>
   );
 });

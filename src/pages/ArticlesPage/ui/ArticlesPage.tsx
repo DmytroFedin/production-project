@@ -1,22 +1,22 @@
 /* eslint-disable max-len */
-import { ArticleList } from 'entities/Article';
-import { ArticleFilters, getArticleView } from 'features/ArticleSort';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Page } from 'widgets/Page';
+import { useSelector } from 'react-redux';
 import {
-  getArticlePageError, getArticlePageHasMore, getArticlePageIsLoading,
-} from '../model/selectors/articlesPageSelectors';
+  ArticleFilters, ArticleSortActions, getArticleInited, initArticleSort,
+} from '@/features/ArticleSort';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Page } from '@/widgets/Page';
 import { fetchNextArticlePage } from '../model/services/fetchNextArticle/fetchNextArticlePage';
 import { initArticlePage } from '../model/services/initArticlePage/initArticlePage';
-import { ArticlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
+import { ArticlesPageActions, ArticlesPageReducer } from '../model/slice/articlesPageSlice';
+import { ArticleInfiniteList } from './ArticleInfiniteList/ArticleInfiniteList';
 import cls from './ArticlesPage.module.scss';
+import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
 
 interface ArticlesPageProps {
   className?: string;
@@ -29,36 +29,31 @@ const reducers: ReducersList = {
 const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
-  const articles = useSelector(getArticles.selectAll);
-  const isLoading = useSelector(getArticlePageIsLoading);
-  const hasMore = useSelector(getArticlePageHasMore);
-  const error = useSelector(getArticlePageError);
-  const view = useSelector(getArticleView);
   const [searchParams] = useSearchParams();
-
-  const onLoadNextPart = useCallback(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchNextArticlePage());
-    }
-  }, [dispatch]);
+  const inited = useSelector(getArticleInited);
 
   useInitialEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
+    dispatch(initArticleSort(searchParams));
+    if (!inited) {
       dispatch(initArticlePage(searchParams));
+      dispatch(ArticleSortActions.setInited());
     }
   });
+
+  const fetchArticles = useCallback(() => {
+    dispatch(fetchArticlesList({ replace: true, page: 1 }));
+  }, [dispatch]);
+
+  const setPage = useCallback((number: number) => {
+    dispatch(ArticlesPageActions.setPage(number));
+  }, [dispatch]);
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}>
+      <Page className={classNames(cls.ArticlesPage, {}, [className])}>
         {/* {t('Articles_Page_header')} */}
-        <ArticleFilters />
-        <ArticleList
-          isLoading={isLoading}
-          view={view}
-          articles={articles}
-          hasMore={hasMore}
-          onLoadNextPart={onLoadNextPart}
-        />
+        <ArticleFilters setPage={setPage} fetchData={fetchArticles} />
+        <ArticleInfiniteList />
       </Page>
     </DynamicModuleLoader>
   );

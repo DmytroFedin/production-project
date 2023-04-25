@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from 'app/providers/themeProvider';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Text, TextSize, TextTheme } from './Text';
 
 export default {
@@ -68,3 +68,40 @@ SizeL.args = {
   text: 'fgdgdfgdfgd',
   size: TextSize.L,
 };
+
+export const SizeS = Template.bind({});
+SizeS.args = {
+  title: 'fgfgfgf',
+  text: 'fgdgdfgdfgd',
+  size: TextSize.S,
+};
+
+export const Dark = Template.bind({});
+Dark.args = {
+  title: 'fgfgfgf',
+  text: 'fgdgdfgdfgd',
+};
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const DarkInverted = Template.bind({});
+DarkInverted.args = {
+  title: 'fgfgfgf',
+  text: 'fgdgdfgdfgd',
+  theme: TextTheme.INVERTED,
+};
+DarkInverted.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Green = Template.bind({});
+Green.args = {
+  title: 'fgfgfgf',
+  text: 'fgdgdfgdfgd',
+};
+Green.decorators = [ThemeDecorator(Theme.GREEN)];
+
+export const GreenInverted = Template.bind({});
+GreenInverted.args = {
+  title: 'fgfgfgf',
+  text: 'fgdgdfgdfgd',
+  theme: TextTheme.INVERTED,
+};
+GreenInverted.decorators = [ThemeDecorator(Theme.GREEN)];

@@ -1,6 +1,7 @@
-import { ArticleSortField, ArticleType } from 'entities/Article';
-import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk/TestAsyncThunk';
+import { ArticleSortField } from '@/entities/Article';
+import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk/TestAsyncThunk';
 import { fetchArticlesList } from './fetchArticlesList';
+import { ArticleType } from '@/shared/const/article';
 
 describe('fetchArticlesList.test', () => {
   test('fetch success', async () => {
@@ -668,7 +669,7 @@ describe('fetchArticlesList.test', () => {
       },
     });
     thunk.api.get.mockReturnValue(Promise.resolve({ data: testValue }));
-    const result = await thunk.callThunk({});
+    const result = await thunk.callThunk({ page: 1 });
 
     expect(thunk.api.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
@@ -689,7 +690,7 @@ describe('fetchArticlesList.test', () => {
       },
     });
     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-    const result = await thunk.callThunk({});
+    const result = await thunk.callThunk({ page: 1 });
 
     expect(thunk.api.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');

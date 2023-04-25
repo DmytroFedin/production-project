@@ -1,4 +1,4 @@
-import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk/TestAsyncThunk';
+import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk/TestAsyncThunk';
 import { addCommentsForArticle } from './addCommentsForArticle';
 
 const data = { articleId: '1', userId: '1', text: 'test 1' };

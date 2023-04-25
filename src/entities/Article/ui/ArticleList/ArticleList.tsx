@@ -1,10 +1,17 @@
-import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
+import {
+  HTMLAttributeAnchorTarget,
+  memo,
+  useEffect,
+  useState,
+} from 'react';
 import { useTranslation } from 'react-i18next';
-import { FixedSizeList as List, ListChildComponentProps } from 'react-window';
-import InfiniteLoader from 'react-window-infinite-loader';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text, TextSize } from 'shared/ui/Text/Text';
-import { Article, ArticleView } from '../../model/types/article';
+import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
+import { ARTICLE_INDEX_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { ArticleView } from '../../model/const/const';
+import { Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import cls from './ArticleList.module.scss';
@@ -15,73 +22,121 @@ interface ArticleListProps {
   isLoading?: boolean;
   view?: ArticleView;
   target?: HTMLAttributeAnchorTarget;
-  hasMore?: boolean;
-  onLoadNextPart: () => void
+  onLoadNextPart?: () => void;
+  virtualized?: boolean;
 }
 
-export const ArticleList = memo(({
-  className, articles, target, isLoading, onLoadNextPart, hasMore, view = ArticleView.LIST,
-}: ArticleListProps) => {
+const getSkeletons = (view: ArticleView) => new Array(5)
+  .fill(0)
+  .map((item, index) => (
+    <ArticleListItemSkeleton key={index} view={view} />
+  ));
+
+const ScrollSkeleton = memo(() => (
+  <HStack gap="50" justify="between" wrap max className={cls.ScrollSkeleton}>
+    <ArticleListItemSkeleton view={ArticleView.LIST} />
+  </HStack>
+));
+
+export const ArticleList = memo((props: ArticleListProps) => {
+  const {
+    className,
+    articles,
+    target,
+    isLoading,
+    onLoadNextPart,
+    virtualized = true,
+    view = ArticleView.LIST,
+  } = props;
   const { t } = useTranslation('article');
+  const [returnIndex, setReturnIndex] = useState(1);
 
-  const loadMoreItems = () => {};
+  useEffect(() => {
+    const index = localStorage.getItem(ARTICLE_INDEX_LOCALSTORAGE_KEY) || 1;
+    setReturnIndex(+index);
+  }, []);
 
-  const isItemLoaded = (index: number) => !isLoading;
-
-  const Row = useCallback((props: ListChildComponentProps) => {
-    const { data, index, style } = props;
-    return (
-      <ArticleListItem target={target} key={index} article={articles[index]} view={view} />
-    );
-  }, [articles, target, view]);
+  const renderArticleV = (index: number, article: Article) => (
+    <ArticleListItem index={index} target={target} key={article.id} article={article} view={view} />
+  );
 
   const renderArticle = (article: Article) => (
     <ArticleListItem target={target} key={article.id} article={article} view={view} />
   );
-  const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.LIST ? 9 : 4)
-    .fill(0)
-    .map((item, index) => (
-      <ArticleListItemSkeleton key={index} view={view} />
-    ));
+
+  // eslint-disable-next-line react/no-unstable-nested-components
+  const Footer = memo(() => {
+    if (isLoading) {
+      if (view === ArticleView.LIST) {
+        return (
+          <HStack gap="50" justify="center" wrap max className={cls.skeletonGrid}>
+            {getSkeletons(view)}
+          </HStack>
+        );
+      }
+      return (
+        <>
+          {getSkeletons(view)}
+        </>
+      );
+    }
+    return null;
+  });
 
   if (!isLoading && !articles.length) {
     return (
-      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+      <HStack justify="center" max className={classNames('', {}, [className])}>
         <Text size={TextSize.L} title={t('Article_not_found')} />
-      </div>
+      </HStack>
+    );
+  }
+
+  if (!virtualized) {
+    return (
+      <HStack justify="center" wrap gap="30" max className={classNames('', {}, [className, cls[ArticleView.LIST]])}>
+        {articles.length > 0
+          ? articles.map(renderArticle)
+          : null}
+        {isLoading && (
+          getSkeletons(ArticleView.LIST)
+        )}
+      </HStack>
     );
   }
 
   return (
-    // <InfiniteLoader
-    //   isItemLoaded={isItemLoaded}
-    //   itemCount={articles.length}
-    //   loadMoreItems={onLoadNextPart}
-    // >
-    //   {({ onItemsRendered, ref }) => (
-    //     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-    //       <List
-    //         // style={{ overflow: 'visible' }}
-    //         height={700}
-    //         itemCount={articles.length}
-    //         itemSize={700}
-    //         width="100%"
-    //       >
-    //         {Row}
-    //       </List>
-    //       {isLoading && (
-    //         getSkeletons(view)
-    //       )}
-    //     </div>
-    //   )}
-    // </InfiniteLoader>
-    <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-      {articles.length > 0
-        ? articles.map(renderArticle)
-        : null}
-      {isLoading && (
-        getSkeletons(view)
-      )}
-    </div>
+    <VStack max className={classNames(cls.ArticleListWrapper, {}, [className])}>
+      {view === ArticleView.PLATE ? (
+        <Virtuoso
+          style={{ width: '100%', height: '100%' }}
+          data={articles}
+          itemContent={renderArticleV}
+          atBottomStateChange={onLoadNextPart}
+          initialTopMostItemIndex={returnIndex}
+          components={
+            { Footer }
+          }
+        />
+      )
+        : (
+          <VirtuosoGrid
+            style={{ width: '100%' }}
+            data={articles}
+            itemContent={renderArticleV}
+            listClassName={cls.itemWrapper}
+            atBottomStateChange={onLoadNextPart}
+            components={
+              {
+                ScrollSeekPlaceholder: ScrollSkeleton,
+                Footer,
+              }
+            }
+            scrollSeekConfiguration={{
+              enter: (velocity) => Math.abs(velocity) > 300,
+              exit: (velocity) => Math.abs(velocity) < 30,
+            }}
+          />
+        )}
+    </VStack>
   );
 });

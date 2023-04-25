@@ -1,13 +1,13 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Text } from 'shared/ui/Text/Text';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import cls from './CommentCard.module.scss';
+import { RoutePath } from '@/shared/const/router';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Text } from '@/shared/ui/Text/Text';
+import { VStack } from '@/shared/ui/Stack';
 import { Comment } from '../../model/types/comment';
+import cls from './CommentCard.module.scss';
 
 interface CommentCardProps {
   className?: string;
@@ -16,17 +16,15 @@ interface CommentCardProps {
 }
 
 export const CommentCard = memo(({ className, isLoading, comment }: CommentCardProps) => {
-  const { t } = useTranslation();
-
   if (isLoading) {
     return (
-      <div className={classNames(cls.CommentCard, {}, [className, cls.loading])}>
+      <VStack gap="10" align="start" max className={classNames(cls.CommentCard, {}, [className, cls.loading])}>
         <div className={cls.header}>
           <Skeleton border="50%" height={30} width={30} />
           <Skeleton width={100} height={16} />
         </div>
         <Skeleton width="100%" height={50} />
-      </div>
+      </VStack>
     );
   }
 
@@ -35,12 +33,12 @@ export const CommentCard = memo(({ className, isLoading, comment }: CommentCardP
   }
 
   return (
-    <div className={classNames(cls.CommentCard, {}, [className])}>
+    <VStack align="start" gap="10" max className={classNames(cls.CommentCard, {}, [className])}>
       <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={cls.header}>
         {comment.user.avatar && <Avatar size={30} src={comment.user.avatar} />}
         <Text title={comment.user.username} />
       </AppLink>
       <Text text={comment.text} />
-    </div>
+    </VStack>
   );
 });

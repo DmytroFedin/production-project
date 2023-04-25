@@ -2,21 +2,23 @@ import {
   AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { ArticleDetailsSchema } from 'entities/Article';
-import { CounterSchema } from 'entities/Counter';
-import { ProfileSchema } from 'entities/Profile';
-import { UserSchema } from 'entities/User';
-import { AddNewCommentSchema } from 'features/AddNewComment';
-import { ArticleSortSchema } from 'features/ArticleSort';
-import { LoginSchema } from 'features/AuthByUsername';
-import { ScrollSchema } from 'features/RestoreScroll';
-import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
-import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { ArticleDetailsSchema } from '@/entities/Article';
+import { CounterSchema } from '@/entities/Counter';
+import { UserSchema } from '@/entities/User';
+import { AddNewCommentSchema } from '@/features/AddNewComment';
+import { ArticleSortSchema } from '@/features/ArticleSort';
+import { LoginSchema } from '@/features/AuthByUsername';
+import { ProfileSchema } from '@/features/EditableProfileCard';
+import { ScrollSchema } from '@/features/RestoreScroll';
+import { ArticleDetailsCommentSchema } from '@/pages/ArticleDetailsPage';
+import { ArticlesPageSchema } from '@/pages/ArticlesPage';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
   scroll: ScrollSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
   loginForm?: LoginSchema;
   profile?: ProfileSchema;

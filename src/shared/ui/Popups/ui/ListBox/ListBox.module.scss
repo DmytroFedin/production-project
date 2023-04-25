@@ -1,0 +1,13 @@
+.options {
+  background: var(--listbox-bg);
+  position: absolute;
+  z-index: var(--btn-z-index);
+  border-radius: 12px;
+  box-shadow: 4px 4px 8px var(--listbox-bg);
+  cursor: pointer;
+}
+
+.option {
+  padding: 10px 20px;
+  border-radius: 12px;
+}

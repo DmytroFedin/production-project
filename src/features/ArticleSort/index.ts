@@ -1,6 +1,10 @@
-export { getArticleView } from './model/selectors/articleSort';
+export { initArticleSort } from './model/services/initArticleSort/initArticleSort';
+export {
+  getArticleView, getArticleOrder, getArticleSearch, getArticleSort, getArticleType,
+  getArticleInited,
+} from './model/selectors/articleSort';
 
-export { ArticleFilters } from './ui/ArticleFilters/ArticleFilters';
+export { ArticleFilters } from '../../pages/ArticlesPage/ui/ArticleFilters/ArticleFilters';
 
-export { ArticleSortActions, ArticleSortReducer } from './model/slice/articleSortSlice';
-export { ArticleSortSchema } from './model/types/articleSort';
+export { ArticleSortActions } from './model/slice/articleSortSlice';
+export type { ArticleSortSchema } from './model/types/articleSort';

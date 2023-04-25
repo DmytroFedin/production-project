@@ -20,5 +20,10 @@
   "Comments_not_found": "Leave a first comment",
   "Comments_header": "Comments",
   "Create_article": "Create article",
-  "App_name": "Tirli Bom Bom"
+  "App_name": "Tirli Bom Bom",
+  "LinkAdminPanel": "Admin",
+  "User_access_denied": "You dont have access to this page",
+  "Leave_review": "Leave a review",
+  "Close_btn": "Close",
+  "Review_thanks_title": "Thanks for your rate!"
 }

@@ -1,11 +1,10 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { ArticleView } from 'entities/Article';
-import ListIcon from 'shared/assets/icons/list-24_24.svg';
-import PlateIcon from 'shared/assets/icons/plate-24_24.svg';
-import { Icon } from 'shared/ui/Icon/Icon';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { ArticleView } from '@/entities/Article';
+import ListIcon from '@/shared/assets/icons/list-24_24.svg';
+import PlateIcon from '@/shared/assets/icons/plate-24_24.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Icon } from '@/shared/ui/Icon/Icon';
 import cls from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {
@@ -26,8 +25,6 @@ const viewTypes = [
 ];
 
 export const ArticleViewSelector = memo(({ className, view, onViewClick }: ArticleViewSelectorProps) => {
-  const { t } = useTranslation();
-
   const onClick = (newView: ArticleView) => () => {
     onViewClick?.(newView);
   };

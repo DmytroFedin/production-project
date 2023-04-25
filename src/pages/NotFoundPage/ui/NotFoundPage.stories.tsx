@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/themeProvider';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { NotFoundPage } from './NotFoundPage';
 
 export default {
@@ -23,3 +23,8 @@ export const DarkTheme = Template.bind({});
 DarkTheme.args = {
 };
 DarkTheme.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
+
+export const GreenTheme = Template.bind({});
+GreenTheme.args = {
+};
+GreenTheme.decorators = [ThemeDecorator(Theme.GREEN), StoreDecorator({})];

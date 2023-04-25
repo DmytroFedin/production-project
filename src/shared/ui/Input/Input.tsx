@@ -1,8 +1,9 @@
 import React, {
   InputHTMLAttributes, KeyboardEvent, memo, MutableRefObject, useEffect, useRef,
 } from 'react';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
+import { HStack } from '../Stack';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readonly' | 'onKeyDown'>
 
@@ -45,12 +46,12 @@ export const Input = memo((props: InputProps) => {
   };
 
   return (
-    <div className={classNames(cls.InputWrapper, mods, [className])}>
+    <HStack gap="5" max className={classNames('', {}, [className])}>
       {title
       && (
-        <div className={cls.title}>
+        <span className={cls.title}>
           {`${title}>`}
-        </div>
+        </span>
       )}
       <input
         readOnly={readonly}
@@ -58,10 +59,10 @@ export const Input = memo((props: InputProps) => {
         type={type}
         value={value}
         onChange={onChangeHandler}
-        className={cls.input}
+        className={classNames(cls.input, mods, [className])}
         onKeyDown={onKeyDown}
         {...otherProps}
       />
-    </div>
+    </HStack>
   );
 });

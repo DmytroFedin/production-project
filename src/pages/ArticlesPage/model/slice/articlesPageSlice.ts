@@ -3,9 +3,9 @@ import {
   createSlice,
   PayloadAction,
 } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { Article, ArticleView } from 'entities/Article';
-import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { Article, ArticleView } from '@/entities/Article';
+import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 
@@ -28,7 +28,7 @@ const ArticlesPageSlice = createSlice({
     page: 1,
     hasMore: true,
     _inited: false,
-    limit: 9,
+    limit: 10,
   }),
   reducers: {
     setPage: (state, action: PayloadAction<number>) => {
@@ -36,8 +36,8 @@ const ArticlesPageSlice = createSlice({
     },
     initState: (state) => {
       const view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView;
-      state.limit = view === ArticleView.PLATE ? 4 : 9;
-      state._inited = true;
+      state.limit = view === ArticleView.PLATE ? 5 : 10;
+      // state._inited = true;
     },
   },
   extraReducers: (builder) => {

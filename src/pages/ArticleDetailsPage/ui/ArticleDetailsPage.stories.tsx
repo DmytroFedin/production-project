@@ -1,8 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Article } from 'entities/Article';
-import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { Article, ArticleBlockType } from '@/entities/Article';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
 import ArticleDetailsPage from './ArticleDetailsPage';
+import { ArticleType } from '@/shared/const/article';
 
 export default {
   title: 'pages/ArticleDetailsPage',
@@ -77,6 +79,42 @@ Normal.decorators = [StoreDecorator({
     },
   },
 })];
+
+export const DarkTheme = Template.bind({});
+DarkTheme.args = {};
+DarkTheme.decorators = [StoreDecorator({
+  articleDetails: {
+    data: article,
+  },
+  articleDetailsComments: {
+    ids: [1],
+    entities: {
+      1: {
+        id: '1',
+        text: 'hello world',
+        user: { id: '1', username: 'Vasya' },
+      },
+    },
+  },
+}), ThemeDecorator(Theme.DARK)];
+
+export const GreenTheme = Template.bind({});
+GreenTheme.args = {};
+GreenTheme.decorators = [StoreDecorator({
+  articleDetails: {
+    data: article,
+  },
+  articleDetailsComments: {
+    ids: [1],
+    entities: {
+      1: {
+        id: '1',
+        text: 'hello world',
+        user: { id: '1', username: 'Vasya' },
+      },
+    },
+  },
+}), ThemeDecorator(Theme.GREEN)];
 
 export const Error = Template.bind({});
 Error.args = {};

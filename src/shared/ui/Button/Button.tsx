@@ -1,8 +1,9 @@
 import {
   ButtonHTMLAttributes,
+  ForwardedRef,
   memo, ReactNode,
 } from 'react';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export enum ButtonTheme {
@@ -27,12 +28,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize
   disabled? :boolean
   children: ReactNode;
+  fullWidth?: boolean;
 }
 
 export const Button = memo((props: ButtonProps) => {
   const {
     className,
     children,
+    fullWidth,
     theme = ButtonTheme.OUTLINED,
     square,
     disabled,
@@ -42,6 +45,7 @@ export const Button = memo((props: ButtonProps) => {
 
   const mods: Mods = {
     [cls.square]: square,
+    [cls.fullWidth]: fullWidth,
   };
 
   return (

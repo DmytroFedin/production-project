@@ -7,7 +7,9 @@ export const buildloaders = (props: BuildOptions): webpack.RuleSetRule[] => {
   const {
     isDev,
   } = props;
-  const babelLoader = buildBabelLoader(props);
+
+  const codeBabelLoader = buildBabelLoader({ ...props, isTsx: false });
+  const codeTsxBabelLoader = buildBabelLoader({ ...props, isTsx: true });
 
   const assetsLoader = {
     test: /\.(png|jpe?g|giff|woff2|woff)$/i,
@@ -22,17 +24,19 @@ export const buildloaders = (props: BuildOptions): webpack.RuleSetRule[] => {
 
   const cssLoader = BuildCssLoader(isDev);
 
-  const typescriptLoader = {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
-    exclude: /node_modules/,
-  };
+  // const typescriptLoader = {
+  //   test: /\.tsx?$/,
+  //   use: 'ts-loader',
+  //   exclude: /node_modules/,
+  // };
 
   return [
     assetsLoader,
     svgLoader,
-    babelLoader,
-    typescriptLoader,
+    codeBabelLoader,
+    codeTsxBabelLoader,
+    // babelLoader,
+    // typescriptLoader,
     cssLoader,
   ];
 };

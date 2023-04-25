@@ -1,14 +1,9 @@
-.InputWrapper {
-  display: flex;
-  gap: 5px;
-}
-
 .input {
-  background: none;
+  background: transparent;
   outline: none;
   border: none;
-  width: 100%;
   color: var(--primary-color);
+  width: 100%;
 
   &:focus {
     outline: none;
@@ -17,4 +12,9 @@
 
 .readonly {
   opacity: 0.7;
+}
+
+.title {
+  width: 100%;
+  max-width: fit-content;
 }

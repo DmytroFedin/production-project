@@ -3,13 +3,14 @@ import {
   createSlice,
   PayloadAction,
 } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import {
-  Article, ArticleSortField, ArticleType, ArticleView,
-} from 'entities/Article';
-import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
-import { SortOrder } from 'shared/types/filters/filters';
+  Article, ArticleSortField, ArticleView,
+} from '@/entities/Article';
+import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
+import { SortOrder } from '@/shared/types/filters/filters';
 import { ArticleSortSchema } from '../types/articleSort';
+import { ArticleType } from '@/shared/const/article';
 
 const articleSortAdapter = createEntityAdapter<Article>({
   // Assume IDs are stored in a field other than `book.id`
@@ -30,6 +31,7 @@ const ArticleSortSlice = createSlice({
     entities: {},
     view: ArticleView.LIST,
     type: ArticleType.ALL,
+    _inited: false,
   }),
   reducers: {
     setSort: (state, action: PayloadAction<ArticleSortField>) => {
@@ -48,32 +50,10 @@ const ArticleSortSlice = createSlice({
       state.view = action.payload;
       localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, action.payload);
     },
-    // initState: (state) => {
-    //   const view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView;
-    //   state.view = view;
-    //   state.limit = view === ArticleView.LIST ? 9 : 4;
-    //   state._inited = true;
-    // },
+    setInited: (state) => {
+      state._inited = true;
+    },
   },
-  // extraReducers: (builder) => {
-  //   builder
-  //     .addCase(fetchArticlesList.pending, (state) => {
-  //       state.error = undefined;
-  //       state.isLoading = true;
-  //     })
-  //     .addCase(fetchArticlesList.fulfilled, (
-  //       state,
-  //       action: PayloadAction<Article[]>,
-  //     ) => {
-  //       state.isLoading = false;
-  //       articleSortAdapter.addMany(state, action.payload);
-  //       state.hasMore = action.payload.length > 0;
-  //     })
-  //     .addCase(fetchArticlesList.rejected, (state, action) => {
-  //       state.isLoading = false;
-  //       state.error = action.payload;
-  //     });
-  // },
 });
 
 export const { reducer: ArticleSortReducer } = ArticleSortSlice;

@@ -1,11 +1,12 @@
-import { memo, useCallback } from 'react';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button } from 'shared/ui/Button/Button';
-import { Input } from 'shared/ui/Input/Input';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Button } from '@/shared/ui/Button/Button';
+import { Input } from '@/shared/ui/Input/Input';
+import { HStack } from '@/shared/ui/Stack';
 import { getNewCommentError, getNewCommentText } from '../../model/selectors/getNewComment';
 import { addNewCommentActions, addNewCommentReducer } from '../../model/slice/addNewCommentSlice';
 import cls from './AddNewComment.module.scss';
@@ -36,7 +37,7 @@ const AddNewComment = (({ className, onSendComment }: AddNewCommentProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(cls.AddNewComment, {}, [className])}>
+      <HStack max className={classNames(cls.AddNewComment, {}, [className])}>
         <Input
           className={cls.input}
           value={text}
@@ -44,7 +45,7 @@ const AddNewComment = (({ className, onSendComment }: AddNewCommentProps) => {
           title={t('Add_comment_title')}
         />
         <Button onClick={onSendHandler}>{t('Send_btn')}</Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   );
 });

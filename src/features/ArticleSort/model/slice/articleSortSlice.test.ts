@@ -1,6 +1,7 @@
-import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
+import { ArticleSortField, ArticleView } from '@/entities/Article';
 import { ArticleSortSchema } from '../types/articleSort';
 import { ArticleSortActions, ArticleSortReducer } from './articleSortSlice';
+import { ArticleType } from '@/shared/const/article';
 
 describe('articleSortSlice.test', () => {
   test('test setSort', () => {

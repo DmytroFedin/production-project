@@ -18,5 +18,9 @@
   "Edit_article_header": "Edit article",
   "Create_article_header": "Create new article",
   "Read_article_Btn": "Read more...",
-  "Edit_article": "Edit Article"
+  "Edit_article": "Edit Article",
+  "Article_Recommendation": "Our Recommendation",
+  "Articles_loading_error": "Articles can`t be loaded",
+  "Rate_Article_title": "Rate the article",
+  "Rate_Article_feedback_title": "Leave your review about article"
 }
