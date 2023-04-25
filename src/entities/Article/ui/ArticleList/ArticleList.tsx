@@ -9,7 +9,7 @@ import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import { ARTICLE_INDEX_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { HStack, VStack } from '@/shared/ui/Stack';
-import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { Text, TextSize } from '@/shared/ui/Text';
 import { ArticleView } from '../../model/const/const';
 import { Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';

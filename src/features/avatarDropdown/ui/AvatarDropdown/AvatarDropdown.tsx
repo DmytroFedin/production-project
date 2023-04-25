@@ -7,8 +7,8 @@ import {
 import { RoutePath } from '@/shared/const/router';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Dropdown } from '@/shared/ui/Popups/ui/Dropown/Dropdown';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Dropdown } from '@/shared/ui/Popups';
 
 interface AvatarDropdownProps {
   className?: string;

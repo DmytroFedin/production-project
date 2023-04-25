@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { ArticleList } from '@/entities/Article';
 import { getArticleView } from '@/features/ArticleSort';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Text, TextTheme } from '@/shared/ui/Text';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   getArticlePageError,

@@ -11,7 +11,6 @@ import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/Dynam
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Page } from '@/widgets/Page';
-import { fetchNextArticlePage } from '../model/services/fetchNextArticle/fetchNextArticlePage';
 import { initArticlePage } from '../model/services/initArticlePage/initArticlePage';
 import { ArticlesPageActions, ArticlesPageReducer } from '../model/slice/articlesPageSlice';
 import { ArticleInfiniteList } from './ArticleInfiniteList/ArticleInfiniteList';

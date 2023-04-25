@@ -17,8 +17,9 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'fsd-relative-path-checker'],
+  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'fsd-relative-path-checker', 'unused-imports'],
   rules: {
+    'unused-imports/no-unused-imports': 'error',
     'react/jsx-indent': [2, 2],
     'react/jsx-indent-props': [2, 2],
     indent: [2, 2],

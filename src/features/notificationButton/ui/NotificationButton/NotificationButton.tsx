@@ -3,13 +3,13 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NotificationList } from '@/entities/Notification';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { Icon } from '@/shared/ui/Icon/Icon';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
 import { Popover } from '@/shared/ui/Popups';
 
 import NotificationIcon from '@/shared/assets/icons/notification-20_20.svg';
 
-import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import { Drawer } from '@/shared/ui/Drawer';
 import cls from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {

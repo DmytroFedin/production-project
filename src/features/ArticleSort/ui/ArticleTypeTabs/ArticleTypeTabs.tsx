@@ -2,7 +2,7 @@ import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { TabItem, Tabs } from '@/shared/ui/Tabs/Tabs';
+import { TabItem, Tabs } from '@/shared/ui/Tabs';
 import { getArticleType } from '../../model/selectors/articleSort';
 import cls from './ArticleTypeTabs.module.scss';
 import { ArticleType } from '@/shared/const/article';

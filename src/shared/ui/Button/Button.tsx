@@ -1,6 +1,5 @@
 import {
   ButtonHTMLAttributes,
-  ForwardedRef,
   memo, ReactNode,
 } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';

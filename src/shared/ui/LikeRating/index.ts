@@ -1,0 +1,1 @@
+export { LikeRating } from './LikeRating';

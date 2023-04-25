@@ -15,7 +15,7 @@ const files = project.getSourceFiles();
 const indexFilename = 'index.ts';
 const layer = process.argv[2] || 'shared';
 const slice = 'ui';
-const dest = project.getDirectory(path.resolve(__dirname, '..', 'src', layer, slice));
+const dest = project.getDirectory(path.resolve(__dirname, '..', '..', 'src', layer, slice));
 const directories = dest?.getDirectories();
 
 directories?.forEach((directory) => {
@@ -67,4 +67,4 @@ files.forEach((source) => {
 });
 
 // eslint-disable-next-line no-console
-project.save().then(() => console.log('Done!'));
+project.save();

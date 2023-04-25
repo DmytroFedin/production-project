@@ -7,7 +7,7 @@ import { getArticleDetailsData, ArticleDetails } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from '@/shared/ui/Stack';
-import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { Text, TextSize } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
 import { ArticleDetailsCommentsReducer } from '../model/slices/ArticleDetailsCommentSlice';
 import { ArticleDetailsComments } from './ArticleDetailsComments/ArticleDetailsComments';
