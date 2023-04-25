@@ -6,20 +6,20 @@
 
 - Components
 
-`ArticleDetails` - component contains information about article.
+`ArticleDetails` - component contains information about article
 
 `ArticleList` -  component with list of articles
 
 `ArticleViewSelector` - component switches display of articles list (plate, list)
 
-`ArticleSortSelector` - component с выбором сортировки списка статьей
+`ArticleSortSelector` - component with sort selector for list of articles
 
-`ArticleTypeTabs` - component с выбором типа статьи
+`ArticleTypeTabs` - component with selector for type of the artticles
 
-- types
+- Types
 
-`Article` - Тип, описывающий статью
+`Article` - Type, describing article
 
-- selectors
+- Selectors
 
-`getArticleDetailsData` - Селектор для получения информации о текущей открытой статье
+`getArticleDetailsData` - Selector for getting information about current opened article
