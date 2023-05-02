@@ -16,21 +16,21 @@ export default {
 const Template: ComponentStory<typeof Popover> = (args) => <Popover {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
-  trigger: <Button>test</Button>,
+  trigger: <Button ariaLabel="">test</Button>,
   children: <span>123</span>,
 };
 Primary.decorators = [StoreDecorator({})];
 
 export const Dark = Template.bind({});
 Dark.args = {
-  trigger: <Button>test</Button>,
+  trigger: <Button ariaLabel="">test</Button>,
   children: <span>123</span>,
 };
 Dark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];
 
 export const Green = Template.bind({});
 Green.args = {
-  trigger: <Button>test</Button>,
+  trigger: <Button ariaLabel="">test</Button>,
   children: <span>123</span>,
 };
 Green.decorators = [StoreDecorator({}), ThemeDecorator(Theme.GREEN)];

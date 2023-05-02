@@ -52,3 +52,10 @@ OutlinedGreen.args = {
   theme: CardTheme.OUTLINED,
 };
 OutlinedGreen.decorators = [StoreDecorator({}), ThemeDecorator(Theme.GREEN)];
+
+export const Max = Template.bind({});
+Max.args = {
+  max: true,
+  children: <Text text="text" title="text text" />,
+};
+Max.decorators = [StoreDecorator({})];

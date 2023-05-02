@@ -34,13 +34,13 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   useInitialEffect(() => {
     dispatch(initArticleSort(searchParams));
     if (!inited) {
-      dispatch(initArticlePage(searchParams));
+      dispatch(initArticlePage());
       dispatch(ArticleSortActions.setInited());
     }
   });
 
   const fetchArticles = useCallback(() => {
-    dispatch(fetchArticlesList({ replace: true, page: 1 }));
+    dispatch(fetchArticlesList({ replace: true }));
   }, [dispatch]);
 
   const setPage = useCallback((number: number) => {

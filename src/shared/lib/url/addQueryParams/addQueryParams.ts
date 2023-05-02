@@ -1,3 +1,7 @@
+/**
+ * Function of getting url parametrs from url
+ * @param params
+ */
 export function getQueryParams(params: OptionalRecord<string, string>) {
   const searchParams = new URLSearchParams(window.location.search);
   Object.entries(params).forEach(([name, value]) => {
@@ -9,7 +13,7 @@ export function getQueryParams(params: OptionalRecord<string, string>) {
 }
 
 /**
- * Функция добавления параметров строки запроса в URL
+ * Function of adding url parametrs to url
  * @param params
  */
 export function addQueryParams(params: OptionalRecord<string, string>) {

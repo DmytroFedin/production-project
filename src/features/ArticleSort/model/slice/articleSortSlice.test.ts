@@ -61,4 +61,14 @@ describe('articleSortSlice.test', () => {
     ArticleSortActions.setView(ArticleView.LIST),
     )).toEqual({ view: ArticleView.LIST });
   });
+
+  test('test inited', () => {
+    const state: DeepPartial<ArticleSortSchema> = {
+      _inited: false,
+    };
+    expect(ArticleSortReducer(
+    state as ArticleSortSchema,
+    ArticleSortActions.setInited(),
+    )).toEqual({ _inited: true });
+  });
 });

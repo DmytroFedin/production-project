@@ -14,6 +14,13 @@ interface AppLinkProps extends LinkProps{
  children: ReactNode;
 }
 
+/**
+ * Element for custom links
+ * @param className additional className from parent
+ * @param theme visual appearence of the element
+ * @param children body of the link
+ */
+
 export const AppLink = memo((props: AppLinkProps) => {
   const {
     to,

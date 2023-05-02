@@ -1,15 +1,32 @@
 import path from 'path';
 import { Project } from 'ts-morph';
 
+interface ExportedDeclarations<T> {
+  name: Array<T>;
+  path: string;
+}
+
 const project = new Project({});
 project.addSourceFilesAtPaths('src/**/*.ts');
 project.addSourceFilesAtPaths('src/**/*.tsx');
 
 export const PROJECT_LAYERS = ['app', 'entities', 'features', 'shared', 'pages', 'widgets'];
 
-function isAbsolute(path: string) {
-  return PROJECT_LAYERS.some((layer) => path.startsWith(layer));
-}
+const isAbsolute = (path: string) => PROJECT_LAYERS.some((layer) => path.startsWith(layer));
+
+const checkPaths = (
+  resultArray: ExportedDeclarations<string>[],
+  modulePath: string,
+  name: string,
+) => {
+  if (resultArray.length > 0) {
+    resultArray.forEach((item) => {
+      if (modulePath === item.path) {
+        item.name.push(name);
+      }
+    });
+  }
+};
 
 const files = project.getSourceFiles();
 const indexFilename = 'index.ts';
@@ -32,19 +49,41 @@ directories?.forEach((directory) => {
     let content = '';
 
     filesInFolder?.forEach((component) => {
+      const exportedInterfaces: ExportedDeclarations<string>[] = [];
+      const interfaces = component.getInterfaces();
+      const exports = component.getExportedDeclarations();
+      const names = Array.from(exports.keys());
+      const exportedValues: ExportedDeclarations<string>[] = [];
       const folderLen = folderName.length;
-      const moduleName = component.getBaseNameWithoutExtension();
       const modulePath = `.${component.getFilePath().slice(folderLen, -4)}`;
-      content += `export {${moduleName}} from "${modulePath}"\n`;
+      interfaces.forEach((item) => {
+        if (item.isExported()) {
+          const name = (item.getName());
+          checkPaths(exportedInterfaces, modulePath, name);
+          exportedInterfaces.push({ name: [name], path: modulePath });
+        }
+      });
+      if (exportedInterfaces[0]) {
+        content += `export type { ${exportedInterfaces[0].name} } from "${modulePath}"\n`;
+      }
+
+      const difference = names.filter((x) => !exportedInterfaces[0]?.name.includes(x));
+
+      difference.forEach((name) => {
+        checkPaths(exportedValues, modulePath, name);
+        exportedValues.push({ name: [name], path: modulePath });
+      });
+      if (exportedValues[0]) {
+        content += `export { ${exportedValues[0].name} } from "${modulePath}"\n`;
+      }
     });
-    // console.log(content)
+
     const file = directory.createSourceFile(
       `${folderName}/${indexFilename}`,
       content,
       { overwrite: true },
     );
 
-    // eslint-disable-next-line no-console
     file.save().then(() => console.log(`${folderName} --> index.ts created!`));
   }
 });
@@ -66,5 +105,4 @@ files.forEach((source) => {
   });
 });
 
-// eslint-disable-next-line no-console
 project.save();

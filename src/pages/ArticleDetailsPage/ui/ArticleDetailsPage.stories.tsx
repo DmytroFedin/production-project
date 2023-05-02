@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import withMock from 'storybook-addon-mock';
 import { Article, ArticleBlockType } from '@/entities/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
@@ -18,6 +19,7 @@ export default {
       routeParams: { id: '1' },
     },
   },
+  decorators: [withMock],
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
 const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
@@ -62,8 +64,41 @@ const article: Article = {
   ],
 };
 
+const test = {
+  userId: '1',
+  articleId: '1',
+  rate: 1,
+  id: '1',
+};
+
+const mock = {
+  mockData: [
+    {
+      url: `${__API__}/article-ratings?userId=1&articleId=1`,
+      method: 'GET',
+      status: 200,
+      response: [
+        { ...test, id: '1' },
+      ],
+    },
+    {
+      url: `${__API__}/articles?_limit=5`,
+      method: 'GET',
+      status: 200,
+      response: [
+        { ...article, id: '1' },
+        { ...article, id: '2' },
+        { ...article, id: '3' },
+        { ...article, id: '4' },
+
+      ],
+    },
+  ],
+};
+
 export const Normal = Template.bind({});
 Normal.args = {};
+Normal.parameters = mock;
 Normal.decorators = [StoreDecorator({
   articleDetails: {
     data: article,
@@ -82,6 +117,7 @@ Normal.decorators = [StoreDecorator({
 
 export const DarkTheme = Template.bind({});
 DarkTheme.args = {};
+DarkTheme.parameters = mock;
 DarkTheme.decorators = [StoreDecorator({
   articleDetails: {
     data: article,
@@ -100,6 +136,7 @@ DarkTheme.decorators = [StoreDecorator({
 
 export const GreenTheme = Template.bind({});
 GreenTheme.args = {};
+GreenTheme.parameters = mock;
 GreenTheme.decorators = [StoreDecorator({
   articleDetails: {
     data: article,

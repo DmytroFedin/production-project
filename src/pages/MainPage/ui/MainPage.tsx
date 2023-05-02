@@ -10,7 +10,7 @@ const MainPage = memo(({ className }: MainPageProps) => {
   const { t } = useTranslation();
 
   return (
-    <Page>
+    <Page data-testid="MainPage">
       <h2>
         {t('MainPage_header')}
       </h2>

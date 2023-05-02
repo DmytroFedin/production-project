@@ -1,3 +1,4 @@
+import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { UserSchema } from '../types/user';
 import { userActions, userReducer } from './userSlice';
 
@@ -44,6 +45,7 @@ describe('userSlice.test', () => {
         username: 'Vasya',
       },
     };
+    localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(data));
     expect(userReducer(
     state as UserSchema,
     userActions.initAuthData(),

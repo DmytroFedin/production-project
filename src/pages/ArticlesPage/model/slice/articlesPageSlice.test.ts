@@ -18,6 +18,6 @@ describe('articlesPageSlice.test', () => {
     expect(ArticlesPageReducer(
     state as ArticlesPageSchema,
     ArticlesPageActions.initState(),
-    )).toEqual({ _inited: true, limit: 9 });
+    )).toEqual({ limit: 10 });
   });
 });

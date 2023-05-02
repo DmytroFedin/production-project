@@ -21,12 +21,14 @@ export const Counter = () => {
     <div>
       <h1 data-testid="value-title">{counterValue}</h1>
       <Button
+        ariaLabel="increment button"
         onClick={increment}
         data-testid="increment-btn"
       >
         {t('increment')}
       </Button>
       <Button
+        ariaLabel="decrement button"
         data-testid="decrement-btn"
         onClick={decrement}
       >

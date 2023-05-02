@@ -43,20 +43,31 @@ export const EditableProfileCardHeader = memo(({ className }: EditableProfileCar
         <div>
           {readonly
             ? (
-              <Button data-testid="EditableProfileCardHeader.EditBtn" theme={ButtonTheme.OUTLINED} onClick={onEdit}>
+              <Button
+                ariaLabel="Edit profile button"
+                data-testid="EditableProfileCardHeader.EditBtn"
+                theme={ButtonTheme.OUTLINED}
+                onClick={onEdit}
+              >
                 {t('Edit_btn')}
               </Button>
             )
             : (
               <HStack gap="10">
                 <Button
+                  ariaLabel="Cancel edit button"
                   data-testid="EditableProfileCardHeader.CancelBtn"
                   theme={ButtonTheme.OUTLINED_RED}
                   onClick={onCancel}
                 >
                   {t('Cancel_btn')}
                 </Button>
-                <Button data-testid="EditableProfileCardHeader.SaveBtn" theme={ButtonTheme.OUTLINED} onClick={onSave}>
+                <Button
+                  ariaLabel="Save profile button"
+                  data-testid="EditableProfileCardHeader.SaveBtn"
+                  theme={ButtonTheme.OUTLINED}
+                  onClick={onSave}
+                >
                   {t('Save_btn')}
                 </Button>
               </HStack>

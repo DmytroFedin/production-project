@@ -7,7 +7,10 @@ export interface UseThemeResult {
   toggleTheme: () => void,
   theme: Theme;
 }
-
+/**
+ * Hook to switch app themes
+ * @returns current theme and function to change it
+ */
 export function UseTheme(): UseThemeResult {
   const { theme, setTheme } = useContext(ThemeContext);
 

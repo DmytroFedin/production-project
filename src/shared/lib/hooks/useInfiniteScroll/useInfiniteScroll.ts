@@ -6,6 +6,13 @@ export interface UseInfiniteScrollOptions {
     wrapperRef: MutableRefObject<HTMLElement>;
 }
 
+/**
+ * Hook that checks user scroll position and do action when user come to specific trigger
+ * @param callback function to be done on trigger
+ * @param wrapperRef root element that user is scrolling
+ * @param triggerRef element on getting which on users screen callback is called
+ */
+
 export function useInfiniteScroll({ callback, wrapperRef, triggerRef }: UseInfiniteScrollOptions) {
   const observer = useRef<IntersectionObserver | null>(null);
 

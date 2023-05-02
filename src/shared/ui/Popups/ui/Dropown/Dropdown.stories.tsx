@@ -10,13 +10,16 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  // decorators: [
+  //   (Story) => <AnimationProvider><Story /></AnimationProvider>,
+  // ],
 } as ComponentMeta<typeof Dropdown>;
 
 const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  trigger: <Button>Open</Button>,
+  trigger: <Button ariaLabel="">Open</Button>,
   items: [
     {
       content: 'first',
@@ -29,7 +32,7 @@ Primary.args = {
 
 export const Dark = Template.bind({});
 Dark.args = {
-  trigger: <Button>Open</Button>,
+  trigger: <Button ariaLabel="">Open</Button>,
   items: [
     {
       content: 'first',
@@ -43,7 +46,7 @@ Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Green = Template.bind({});
 Green.args = {
-  trigger: <Button>Open</Button>,
+  trigger: <Button ariaLabel="">Open</Button>,
   items: [
     {
       content: 'first',

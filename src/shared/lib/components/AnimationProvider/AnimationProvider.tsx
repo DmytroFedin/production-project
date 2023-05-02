@@ -17,7 +17,10 @@ const getAsyncAnimationModules = async () => Promise.all([
   import('@react-spring/web'),
   import('@use-gesture/react'),
 ]);
-
+/**
+ * Provider that dynamically loads libraries for animation and drag and drop and stores it in context
+ * @returns provider for component with libraries and hook to interact with libraries
+ */
 export const useAnimationLibs = () => useContext(AnimationContext) as Required<AnimationContextPayload>;
 
 export const AnimationProvider = ({ children }: {children: ReactNode}) => {

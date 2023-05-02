@@ -43,7 +43,7 @@ export const NotificationButton = memo(({ className }: NotificationButtonProps) 
   }, []);
 
   const trigger = (
-    <Button onClick={onOpenDrawer} theme={ButtonTheme.CLEAR}>
+    <Button ariaLabel="Open notifications button" onClick={onOpenDrawer} theme={ButtonTheme.CLEAR}>
       <Icon Svg={NotificationIcon} inverted />
     </Button>
   );

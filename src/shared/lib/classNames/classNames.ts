@@ -1,5 +1,12 @@
 export type Mods = Record<string, boolean | string | undefined>;
 
+/**
+ * Hook to dynamically add className
+ * @param cls regular element className
+ * @param mods dynamic className
+ * @param additional additional persistent classNames
+ */
+
 export function classNames(cls: string, mods: Mods = {}, additional: Array<string | undefined> = []): string {
   return [
     cls,

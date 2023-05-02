@@ -18,7 +18,14 @@ export const PageError = memo(({ className }: PageErrorProps) => {
   return (
     <div className={classNames(cls.PageError, {}, [className])}>
       <p>{t('Error_Boundary_Message')}</p>
-      <Button theme={ButtonTheme.OUTLINED} onClick={refreshPage}>{t('refresh_Page_Btn')}</Button>
+      <Button
+        ariaLabel="Refresh page button"
+        theme={ButtonTheme.OUTLINED}
+        onClick={refreshPage}
+      >
+        {t('refresh_Page_Btn')}
+
+      </Button>
     </div>
   );
 });

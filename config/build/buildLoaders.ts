@@ -1,5 +1,5 @@
 import webpack from 'webpack';
-import { buildBabelLoader } from './loaders/buildBabelLoaader';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 import { BuildCssLoader } from './loaders/buildCssLoader';
 import { BuildOptions } from './types/config';
 
@@ -24,19 +24,11 @@ export const buildloaders = (props: BuildOptions): webpack.RuleSetRule[] => {
 
   const cssLoader = BuildCssLoader(isDev);
 
-  // const typescriptLoader = {
-  //   test: /\.tsx?$/,
-  //   use: 'ts-loader',
-  //   exclude: /node_modules/,
-  // };
-
   return [
     assetsLoader,
     svgLoader,
     codeBabelLoader,
     codeTsxBabelLoader,
-    // babelLoader,
-    // typescriptLoader,
     cssLoader,
   ];
 };

@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 import { Button } from '@/shared/ui/Button';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getArticleDetailsData } from '@/entities/Article';
@@ -19,20 +19,22 @@ export const ArticleDetailsPageHeader = ({ className }: ArticleDetailsPageHeader
   const canEdit = useSelector(canEditArticle);
   const article = useSelector(getArticleDetailsData);
   const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles);
+    navigate(getRouteArticles());
   }, [navigate]);
 
   const onEditArticle = useCallback(() => {
-    navigate(`${RoutePath.article_details}${article?.id}/edit`);
-  }, [article?.id, navigate]);
+    if (article) {
+      navigate(getRouteArticleEdit(article.id));
+    }
+  }, [article, navigate]);
 
   return (
     <HStack max justify="between" className={classNames('', {}, [className])}>
-      <Button onClick={onBackToList}>
+      <Button ariaLabel="Return to article list button" onClick={onBackToList}>
         {t('Return_to_articles', { ns: 'article' })}
       </Button>
       {canEdit && (
-        <Button onClick={onEditArticle}>
+        <Button ariaLabel="Edit article button" onClick={onEditArticle}>
           {t('Edit_article', { ns: 'article' })}
         </Button>
       )}

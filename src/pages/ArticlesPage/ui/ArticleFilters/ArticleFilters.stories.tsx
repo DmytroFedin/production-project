@@ -3,7 +3,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { ArticleFilters } from './ArticleFilters';
 
 export default {
-  title: 'features/ArticleSort/ArticleFilters',
+  title: 'pages/ArticlesPage/ArticleFilters',
   component: ArticleFilters,
   argTypes: {
     backgroundColor: { control: 'color' },

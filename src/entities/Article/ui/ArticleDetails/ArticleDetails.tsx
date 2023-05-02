@@ -8,7 +8,6 @@ import { Text, TextAlign, TextSize } from '@/shared/ui/Text';
 import EyeIcon from '@/shared/assets/icons/eye-20_20.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar-20_20.svg';
 import { Skeleton } from '@/shared/ui/Skeleton';
-import { Avatar } from '@/shared/ui/Avatar';
 import { Icon } from '@/shared/ui/Icon';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { ArticleBlockType } from '../../model/const/const';
@@ -24,6 +23,7 @@ import cls from './ArticleDetails.module.scss';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { AppImage } from '@/shared/ui/AppImage';
 
 interface ArticleProps {
   className?: string;
@@ -92,18 +92,23 @@ export const ArticleDetails = memo(({ className, id }: ArticleProps) => {
     );
   } else if (error) {
     content = (
-      <Text
-        align={TextAlign.CENTER}
-        title={t('Article_Error')}
-      />
+      <HStack max align="center">
+        <Text
+          align={TextAlign.CENTER}
+          title={t('Article_Error')}
+        />
+      </HStack>
     );
   } else {
     content = (
       <>
         <HStack max justify="center">
-          <Avatar
-            size={200}
+          <AppImage
+            width="200"
+            height="200"
+            round
             src={article?.img}
+            alt="Main article image"
             className={cls.avatar}
           />
         </HStack>
@@ -130,7 +135,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleProps) => {
 
   return (
     <DynamicModuleLoader removeAfterUnmount reducers={reducers}>
-      <VStack max align="start" gap="10" className={classNames(cls.Article, {}, [className])}>
+      <VStack max align="start" gap="15" className={classNames(cls.Article, {}, [className])}>
         {content}
       </VStack>
     </DynamicModuleLoader>

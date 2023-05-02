@@ -1,7 +1,7 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import EyeIcon from '@/shared/assets/icons/eye-20_20.svg';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleDetails } from '@/shared/const/router';
 import { ARTICLE_INDEX_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
@@ -16,6 +16,8 @@ import {
 } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 interface ArticleListItemProps {
   className?: string;
@@ -32,7 +34,15 @@ export const ArticleListItem = memo(({
   const types = <Text text={article.type.join(', ')} className={cls.types} />;
   const title = <Text text={article.title} className={cls.title} />;
   const date = <Text className={cls.date} text={article.createdAt} />;
-  const image = <img className={cls.image} src={article.img} alt={article.title} />;
+  const image = (
+    <AppImage
+      // errorFallback={}
+      fallback={<Skeleton className={cls.image} height={view === 'PLATE' ? 250 : '100%'} />}
+      className={cls.image}
+      src={article.img}
+      alt={article.title}
+    />
+  );
   const views = (
     <>
       <Text text={String(article.views)} className={cls.views} />
@@ -64,8 +74,8 @@ export const ArticleListItem = memo(({
             <ArticleTextBlockComponent block={textblock} className={cls.textblock} />
           )}
           <div className={cls.footer}>
-            <AppLink to={RoutePath.article_details + article.id} target={target}>
-              <Button onClick={onClickHandler}>
+            <AppLink to={getRouteArticleDetails(article.id)} target={target}>
+              <Button ariaLabel="Read more button" onClick={onClickHandler}>
                 {t('Read_article_Btn')}
               </Button>
             </AppLink>
@@ -80,7 +90,7 @@ export const ArticleListItem = memo(({
     <AppLink
       target={target}
       className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
-      to={RoutePath.article_details + article.id}
+      to={getRouteArticleDetails(article.id)}
     >
       <Card>
         <div className={cls.imageWrapper}>

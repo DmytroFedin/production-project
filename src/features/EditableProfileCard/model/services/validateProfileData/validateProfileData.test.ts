@@ -39,7 +39,7 @@ describe('validateProfileData.test', () => {
     const result = validateProfileData({ ...data, country: undefined });
 
     expect(result).toEqual([
-      ValidateProfileErrors.INCORRECT_USER_DATA,
+      ValidateProfileErrors.INCORRECT_USER_COUNTRY,
     ]);
   });
 

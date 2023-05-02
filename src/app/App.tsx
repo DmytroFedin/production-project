@@ -4,7 +4,7 @@ import { getUserMounted, userActions } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { UseTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { Sidebar } from '@/widgets/Sidebar';
-import { Navbar } from '@/widgets/navbar';
+import { Navbar } from '@/widgets/Navbar';
 import { AppRouter } from './providers/router';
 
 const App = () => {

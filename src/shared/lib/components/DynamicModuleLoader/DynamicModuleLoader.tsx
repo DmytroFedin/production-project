@@ -7,13 +7,18 @@ export type ReducersList = {
     [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
 }
 
-type ReducersListEntry = [StateSchemaKey, Reducer]
-
 interface DynamicModuleLoaderProps {
   reducers: ReducersList;
   removeAfterUnmount?: boolean;
   children: ReactNode;
 }
+
+/**
+ * Provider to dynamically add and delete Redux reducers to certain components
+ * @param reducers reducers that needed to be dynamically added
+ * @param removeAfterUnmount remove reducer after disapearing component from DOM
+ * @param children component that uses reducers
+ */
 
 export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
   const {

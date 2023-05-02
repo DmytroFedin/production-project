@@ -14,7 +14,7 @@ export interface DropdownItem {
   href?: string;
 }
 
-export interface ListBoxItem {
+export interface DropdownProps {
   className?: string;
   items: DropdownItem[];
   trigger: ReactNode;
@@ -23,13 +23,14 @@ export interface ListBoxItem {
 
 export const Dropdown = ({
   className, trigger, items, direction = 'bottom-right',
-}: ListBoxItem) => (
+}: DropdownProps) => (
   <Menu as="div" className={classNames(PopupCls.popups, {}, [className])}>
     <Menu.Button className={PopupCls.trigger}>{trigger}</Menu.Button>
     <Menu.Items className={classNames(cls.menu, {}, [className, PopupCls[direction]])}>
       {items.map((item, index) => {
         const content = ({ active }: {active: boolean}) => (
           <Button
+            ariaLabel="Open profile menu button"
             disabled={item.disabled}
             className={classNames(cls.item, { [PopupCls.active]: active }, [className])}
             theme={ButtonTheme.CLEAR}

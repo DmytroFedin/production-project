@@ -7,13 +7,11 @@ project.addSourceFilesAtPaths('src/**/*.md');
 project.addSourceFilesAtPaths('src/**/*.ts');
 project.addSourceFilesAtPaths('src/**/*.tsx');
 
-// slice : entities, features, pages, widgets
+// slice : entities, features
 
 const sliceMap: Record<string, string> = {
-  pages: 'Page',
   entities: 'Entity',
   features: 'Feature',
-  widgets: 'Widget',
 };
 
 const createReadmeForSlice = (slice: string) => {

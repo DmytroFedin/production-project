@@ -67,7 +67,13 @@ const LoginForm = memo(({ className, isOpen, onSuccess }: LoginFormProps) => {
           onChange={onChangePassword}
           value={password}
         />
-        <Button disabled={isLoading} className={cls.btn} theme={ButtonTheme.OUTLINED} onClick={onLoginclick}>
+        <Button
+          ariaLabel="login button"
+          disabled={isLoading}
+          className={cls.btn}
+          theme={ButtonTheme.OUTLINED}
+          onClick={onLoginclick}
+        >
           {t('LogInBtn')}
         </Button>
       </VStack>

@@ -25,5 +25,6 @@
   "User_access_denied": "У Вас немає доступу до цієї сторінки",
   "Leave_review": "Залиш відгук",
   "Close_btn": "Закрити",
-  "Review_thanks_title": "Дякуємо, за Вашу оцінку!"
+  "Review_thanks_title": "Дякуємо, за Вашу оцінку!",
+  "Admin_panel_header": "Адмінка"
 }

@@ -68,10 +68,10 @@ export const RatingCard = memo(({
       <Text title={feedbackTitle} />
       <Input value={feedback} onChange={setFeedback} title={t('Leave_review')} />
       <HStack max justify="between">
-        <Button onClick={onAcceptHandler}>
+        <Button ariaLabel="Send with feedback button" onClick={onAcceptHandler}>
           {t('Send_btn')}
         </Button>
-        <Button onClick={onCancelHandler} theme={ButtonTheme.OUTLINED_RED}>
+        <Button ariaLabel="Send without feedback button" onClick={onCancelHandler} theme={ButtonTheme.OUTLINED_RED}>
           {t('Close_btn')}
         </Button>
       </HStack>

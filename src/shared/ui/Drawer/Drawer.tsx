@@ -16,6 +16,14 @@ interface DrawerProps {
 }
 const height = window.innerHeight - 100;
 
+/**
+ *
+ * @param className
+ * @param children
+ * @param isOpen
+ * @param onClose
+ */
+
 const DrawerContent = memo((props: DrawerProps) => {
   const {
     className,

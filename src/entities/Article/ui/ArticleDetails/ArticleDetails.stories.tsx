@@ -90,10 +90,12 @@ const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetail
 
 export const Primary = Template.bind({});
 Primary.args = {};
+
 Primary.decorators = [StoreDecorator({
   articleDetails: {
     data: article,
   },
+
 })];
 
 export const Loading = Template.bind({});

@@ -25,6 +25,7 @@ export const CountrySelect = memo(({
   const onChangeHandler = useCallback((value: string) => onChange?.(value as Country), [onChange]);
   return (
     <ListBox
+      ariaLabel="Country select button"
       items={options}
       onChange={onChangeHandler}
       value={value}
@@ -33,13 +34,5 @@ export const CountrySelect = memo(({
       direction="top-right"
       label={t('Country_change_select')}
     />
-    // <Select
-    //   className={classNames('', {}, [className])}
-    //   label={t('Country_change_select')}
-    //   options={options}
-    //   value={value}
-    //   onChange={onChangeHandler}
-    //   readonly={readonly}
-    // />
   );
 });

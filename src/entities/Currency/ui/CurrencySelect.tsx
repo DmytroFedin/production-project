@@ -24,6 +24,7 @@ export const CurrencySelect = memo(({
   const onChangeHandler = useCallback((value: string) => onChange?.(value as Currency), [onChange]);
   return (
     <ListBox
+      ariaLabel="Select currency button"
       items={options}
       onChange={onChangeHandler}
       defaultValue={t('Currency_change_select')}
@@ -32,13 +33,5 @@ export const CurrencySelect = memo(({
       direction="top-right"
       label={t('Currency_change_select')}
     />
-    // <Select
-    //   className={classNames('', {}, [className])}
-    //   label={t('Currency_change_select')}
-    //   options={options}
-    //   value={value}
-    //   onChange={onChangeHandler}
-    //   readonly={readonly}
-    // />
   );
 });

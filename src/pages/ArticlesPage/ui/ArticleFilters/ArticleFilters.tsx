@@ -41,10 +41,6 @@ export const ArticleFilters = ({ className, fetchData, setPage }: ArticleFilters
     articleSort: ArticleSortReducer,
   };
 
-  // const fetchData = useCallback(() => {
-  //   dispatch(fetchArticlesList({ replace: true }));
-  // }, [dispatch]);
-
   const debounceFetchData = useDebounce(fetchData, 500);
 
   const onChangeView = useCallback((view: ArticleView) => {

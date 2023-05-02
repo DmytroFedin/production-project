@@ -9,6 +9,7 @@ export interface TabItem<T extends ArticleType> {
   value: T;
   content: ReactNode;
 }
+export type Test = string
 
 interface TabsProps <T extends ArticleType> {
   className?: string;

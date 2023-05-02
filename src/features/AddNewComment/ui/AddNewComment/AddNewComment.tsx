@@ -44,7 +44,7 @@ const AddNewComment = (({ className, onSendComment }: AddNewCommentProps) => {
           onChange={onCommentTextChange}
           title={t('Add_comment_title')}
         />
-        <Button onClick={onSendHandler}>{t('Send_btn')}</Button>
+        <Button ariaLabel="Add comment button" onClick={onSendHandler}>{t('Send_btn')}</Button>
       </HStack>
     </DynamicModuleLoader>
   );

@@ -3,13 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { Country, CountrySelect } from '@/entities/Country';
 import { Currency, CurrencySelect } from '@/entities/Currency';
 import { Mods, classNames } from '@/shared/lib/classNames/classNames';
-import { Avatar } from '@/shared/ui/Avatar';
 import { Input } from '@/shared/ui/Input';
 import { Loader } from '@/shared/ui/Loader';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
+import { Avatar } from '@/shared/ui/Avatar';
 
 interface ProfileCardProps {
   className?: string;
@@ -76,7 +76,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
     <VStack align="start" max gap="10" className={classNames(cls.ProfileCard, mods, [className])}>
       {data?.avatar && (
         <HStack justify="center" max>
-          <Avatar src={data?.avatar} />
+          <Avatar size={100} alt="user image" src={data?.avatar} />
         </HStack>
       )}
       <Input

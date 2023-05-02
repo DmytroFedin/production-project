@@ -31,6 +31,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
       )}
     >
       <Button
+        ariaLabel="Open sidebar button"
         data-testid="sidebar-toggle"
         type="button"
         className={cls.fullviewBtn}

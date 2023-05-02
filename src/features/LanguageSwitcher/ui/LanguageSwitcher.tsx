@@ -17,6 +17,7 @@ export const LanguageSwitcher = memo(({ className, short }: LanguageSwitcherProp
 
   return (
     <Button
+      ariaLabel="Switch language button"
       theme={ButtonTheme.CLEAR_INVERTED}
       onClick={toggleLang}
       className={classNames('', {}, [className])}

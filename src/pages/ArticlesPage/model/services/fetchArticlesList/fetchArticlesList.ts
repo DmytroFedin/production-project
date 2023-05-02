@@ -11,7 +11,6 @@ import { ArticleType } from '@/shared/const/article';
 
 interface fetchArticlesListProps {
   replace?: boolean;
-  page: number;
 }
 
 export const fetchArticlesList = createAsyncThunk<

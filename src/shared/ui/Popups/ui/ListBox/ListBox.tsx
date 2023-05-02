@@ -23,10 +23,11 @@ interface ListBoxProps {
   readonly?: boolean;
   direction?: DropdownDirection;
   label?: string
+  ariaLabel: string
 }
 
 export const ListBox = ({
-  className, items, value, defaultValue, onChange, readonly, direction = 'bottom-right', label,
+  className, items, value, ariaLabel, defaultValue, onChange, readonly, direction = 'bottom-right', label,
 }: ListBoxProps) => {
   const { t } = useTranslation();
 
@@ -41,7 +42,7 @@ export const ListBox = ({
         onChange={onChange}
       >
         <HListBox.Button as="div">
-          <Button disabled={readonly}>
+          <Button ariaLabel={ariaLabel} disabled={readonly}>
             {value ?? defaultValue}
           </Button>
         </HListBox.Button>

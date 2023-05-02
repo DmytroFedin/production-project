@@ -28,13 +28,26 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled? :boolean
   children: ReactNode;
   fullWidth?: boolean;
+  ariaLabel: string;
 }
+
+/**
+ * Element for custom button
+ * @param className additional className from parent
+ * @param theme visual appearence of the element
+ * @param square make button square
+ * @param size size of the button
+ * @param disabled make button disabled
+ * @param children body of the button
+ * @param fullWidth make button width: 100%
+ */
 
 export const Button = memo((props: ButtonProps) => {
   const {
     className,
     children,
     fullWidth,
+    ariaLabel,
     theme = ButtonTheme.OUTLINED,
     square,
     disabled,
@@ -49,6 +62,7 @@ export const Button = memo((props: ButtonProps) => {
 
   return (
     <button
+      aria-label={ariaLabel}
       type="button"
       className={classNames(cls.Button, mods, [className, cls[theme], cls[size]])}
       disabled={disabled}

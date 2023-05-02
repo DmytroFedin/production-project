@@ -2,6 +2,7 @@ import {
   CombinedState,
   configureStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
 import { counterReducer } from '@/entities/Counter';
 import { userReducer } from '@/entities/User';
 import { restoreScrollReducer } from '@/features/RestoreScroll';
@@ -40,5 +41,5 @@ export const createReduxStore = (
   store.reducerManager = reducerManager;
   return store;
 };
-
+useDispatch;
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

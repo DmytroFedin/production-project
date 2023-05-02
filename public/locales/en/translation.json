@@ -25,5 +25,6 @@
   "User_access_denied": "You dont have access to this page",
   "Leave_review": "Leave a review",
   "Close_btn": "Close",
-  "Review_thanks_title": "Thanks for your rate!"
+  "Review_thanks_title": "Thanks for your rate!",
+  "Admin_panel_header": "Admin Panel"
 }

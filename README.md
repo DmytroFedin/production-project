@@ -171,7 +171,6 @@ For asynchronous connection of reducers (to not pull them into main bundle) is u
 
 - [Article](/src/entities/Article)
 - [Comment](/src/entities/Comment)
-- [Counter](/src/entities/Counter)
 - [Country](/src/entities/Country)
 - [Currency](/src/entities/Currency)
 - [Notification](/src/entities/Notification)
@@ -181,15 +180,18 @@ For asynchronous connection of reducers (to not pull them into main bundle) is u
 
 ## Features
 
-- [addCommentForm](/src/features/addCommentForm)
-- [articleEditForm](/src/features/articleEditForm)
-- [articleRating](/src/features/articleRating)
-- [articleRecommendationsList](/src/features/articleRecommendationsList)
+- [AddNewComment](/src/features/AddCommentForm)
+<!-- - [articleEditForm](/src/features/articleEditForm) -->
+- [ArticleRating](/src/features/ArticleRating)
+- [ArticleRecommendationsList](/src/features/ArticleRecommendationsList)
+- [ArticleSort](/src/features/ArticleSort)
+- [ArticleViewSelector](/src/features/ArticleViewSelector)
 - [AuthByUsername](/src/features/AuthByUsername)
 - [avatarDropdown](/src/features/avatarDropdown)
-- [editableProfileCard](/src/features/editableProfileCard)
-- [LangSwitcher](/src/features/LangSwitcher)
+- [EditableProfileCard](/src/features/EditableProfileCard)
+- [LanguageSwitcher](/src/features/LanguageSwitcher)
 - [notificationButton](/src/features/notificationButton)
-- [profileRating](/src/features/profileRating)
+<!-- - [profileRating](/src/features/profileRating) -->
+- [RestoreScroll](/src/features/RestoreScroll)
 - [ThemeSwitcher](/src/features/ThemeSwitcher)
 

@@ -1,5 +1,8 @@
 import { useCallback, useMemo, useState } from 'react';
 
+/**
+ * Custom onHover hook
+ */
 interface useHoverBind {
   onMouseEnter: () => void;
   onMouseLeave: () => void;

@@ -7,7 +7,14 @@ interface UseModalProps {
   isOpen?: boolean;
   animationDelay: number;
 }
-
+/**
+ * Hook to manage modal functionality
+ * @param onClose function to close modal
+ * @param isOpen boolean if element is open
+ * @param animationDelay delay for animation before deleting modal from DOM
+ * @returns booleans isOpening and isClosing that are changing to false after delay. Used to make animation on opening and closing.
+ * @returns close function to close modal with a delay for animation
+ */
 export const useModal = (props: UseModalProps) => {
   const {
     onClose, isOpen, animationDelay,

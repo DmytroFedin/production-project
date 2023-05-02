@@ -15,6 +15,7 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
 
   return (
     <Button
+      ariaLabel="Switch app theme button"
       theme={ButtonTheme.CLEAR}
       onClick={toggleTheme}
       className={classNames('', {}, [className])}

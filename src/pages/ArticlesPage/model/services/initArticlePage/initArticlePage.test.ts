@@ -5,28 +5,11 @@ import { initArticlePage } from './initArticlePage';
 jest.mock('../fetchArticlesList/fetchArticlesList');
 
 describe('initArticlePage.test', () => {
-  const url = new URL('http://localhost:3000/articles?order=desc&sort=views&search=&type=ALL');
   test('initArticlePage is inited', async () => {
-    const thunk = new TestAsyncThunk(initArticlePage, {
-      articlesPage: {
-        _inited: true,
-      },
-    });
-    await thunk.callThunk(url.searchParams);
+    const thunk = new TestAsyncThunk(initArticlePage);
+    await thunk.callThunk();
 
-    expect(thunk.dispatch).toHaveBeenCalledTimes(2);
-    expect(fetchArticlesList).not.toHaveBeenCalled();
-  });
-
-  test('initArticlePage not inited', async () => {
-    const thunk = new TestAsyncThunk(initArticlePage, {
-      articlesPage: {
-        _inited: false,
-      },
-    });
-    await thunk.callThunk(url.searchParams);
-
-    expect(thunk.dispatch).toHaveBeenCalledTimes(6);
+    expect(thunk.dispatch).toHaveBeenCalledTimes(4);
     expect(fetchArticlesList).toHaveBeenCalled();
   });
 });
