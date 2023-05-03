@@ -3,7 +3,6 @@ import {
   memo, useCallback, useEffect, useState,
 } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './RatingCard.module.scss';
 import { Card } from '@/shared/ui/Card';
 import { Text } from '@/shared/ui/Text';
 import { StarRating } from '@/shared/ui/StarRating';
@@ -78,7 +77,7 @@ export const RatingCard = memo(({
     </VStack>
   );
   return (
-    <Card max className={classNames(cls.Rating, {}, [className])}>
+    <Card max className={classNames('', {}, [className])}>
       <VStack max gap="5" align="center">
         <Text title={starsCount > 0 ? t('Review_thanks_title') : title} />
         <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />

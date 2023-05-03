@@ -2,7 +2,6 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import avatar from '@/shared/assets/tests/Avatar.jpg';
 import { ProfileCard } from './ProfileCard';
 
 export default {
@@ -25,7 +24,7 @@ Primary.args = {
     currency: Currency.UAH,
     lastname: 'ggg',
     username: 'ggg',
-    avatar,
+    avatar: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   },
 };
 Primary.decorators = [StoreDecorator({})];
