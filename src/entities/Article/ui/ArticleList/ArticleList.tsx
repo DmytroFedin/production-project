@@ -6,15 +6,15 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
+import cls from './ArticleList.module.scss';
 import { ARTICLE_INDEX_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text, TextSize } from '@/shared/ui/Text';
 import { ArticleView } from '../../model/const/const';
-import { Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-import cls from './ArticleList.module.scss';
+import { Article } from '../../model/types/article';
 
 interface ArticleListProps {
   className?: string;

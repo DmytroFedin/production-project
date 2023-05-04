@@ -49,7 +49,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <Page className={classNames(cls.ArticlesPage, {}, [className])}>
+      <Page data-testid="ArticlesPage" className={classNames(cls.ArticlesPage, {}, [className])}>
         {/* {t('Articles_Page_header')} */}
         <ArticleFilters setPage={setPage} fetchData={fetchArticles} />
         <ArticleInfiniteList />

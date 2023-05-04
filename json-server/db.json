@@ -1188,6 +1188,15 @@
     },
     {
       "id": "3",
+      "username": "testUser",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://lirp.cdn-website.com/93aa737e/dms3rep/multi/opt/hacker-computer-systems-1920w.jpg"
+    },
+    {
+      "id": "3",
       "username": "manager",
       "password": "123",
       "roles": [
