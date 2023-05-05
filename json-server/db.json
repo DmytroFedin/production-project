@@ -26,13 +26,6 @@
       "description": "Something happened",
       "userId": "4",
       "href": "http://localhost:3000/admin"
-    },
-    {
-      "id": "5",
-      "title": "Notification 5",
-      "description": "Something happened",
-      "userId": "5",
-      "href": "http://localhost:3000/admin"
     }
   ],
   "articles": [
@@ -1115,6 +1108,175 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "userId": "1",
+      "createdAt": "26.02.2022",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "q31Bs7U"
+    },
+    {
+      "id": 100001,
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "userId": "1",
+      "createdAt": "26.02.2022",
+      "type": [
+        "IT"
+      ],
+      "blocks": []
+    },
+    {
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "userId": "1",
+      "createdAt": "26.02.2022",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "Ky1YfXz"
+    },
+    {
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "userId": "1",
+      "createdAt": "26.02.2022",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "z7UvrGU"
+    },
+    {
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "userId": "1",
+      "createdAt": "26.02.2022",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "-pqgHMu"
+    },
+    {
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "userId": "1",
+      "createdAt": "26.02.2022",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "NHc0AjS"
+    },
+    {
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "userId": "1",
+      "createdAt": "26.02.2022",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "VzAw5Py"
+    },
+    {
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "userId": "1",
+      "createdAt": "26.02.2022",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "T2eKC7R"
+    },
+    {
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "userId": "1",
+      "createdAt": "26.02.2022",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "yYe2Kp-"
+    },
+    {
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "userId": "1",
+      "createdAt": "26.02.2022",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "PgppjRx"
+    },
+    {
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "userId": "1",
+      "createdAt": "26.02.2022",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "BMNHY4O"
+    },
+    {
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "userId": "1",
+      "createdAt": "26.02.2022",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "6617idA"
+    },
+    {
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "userId": "1",
+      "createdAt": "26.02.2022",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "_7Bn4Gx"
     }
   ],
   "comments": [
@@ -1188,21 +1350,21 @@
     },
     {
       "id": "3",
-      "username": "testUser",
-      "password": "123",
-      "roles": [
-        "ADMIN"
-      ],
-      "avatar": "https://lirp.cdn-website.com/93aa737e/dms3rep/multi/opt/hacker-computer-systems-1920w.jpg"
-    },
-    {
-      "id": "3",
       "username": "manager",
       "password": "123",
       "roles": [
         "MANAGER"
       ],
       "avatar": "https://cdn.kinandcarta.com/-/media-assets/images/kincarta/insights/2022/02/react-native/react_hero.png?as=0&iar=0&w=1200&rev=61e1dad3af7e465e9544cf8490237772&hash=0AD31383BCBA1DA1C88546327312BA33"
+    },
+    {
+      "id": "4",
+      "username": "testUser",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://lirp.cdn-website.com/93aa737e/dms3rep/multi/opt/hacker-computer-systems-1920w.jpg"
     }
   ],
   "profile": [
@@ -1226,6 +1388,28 @@
       "country": "Poland",
       "city": "Warsaw",
       "username": "user213",
+      "avatar": "https://cdn.kinandcarta.com/-/media-assets/images/kincarta/insights/2022/02/react-native/react_hero.png?as=0&iar=0&w=1200&rev=61e1dad3af7e465e9544cf8490237772&hash=0AD31383BCBA1DA1C88546327312BA33"
+    },
+    {
+      "id": "3",
+      "firstname": "jgh",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "UAH",
+      "country": "Poland",
+      "city": "Warsaw",
+      "username": "123",
+      "avatar": "https://cdn.kinandcarta.com/-/media-assets/images/kincarta/insights/2022/02/react-native/react_hero.png?as=0&iar=0&w=1200&rev=61e1dad3af7e465e9544cf8490237772&hash=0AD31383BCBA1DA1C88546327312BA33"
+    },
+    {
+      "id": "4",
+      "firstname": "test",
+      "lastname": "test",
+      "age": 465,
+      "currency": "UAH",
+      "country": "Poland",
+      "city": "Warsaw",
+      "username": "testUser",
       "avatar": "https://cdn.kinandcarta.com/-/media-assets/images/kincarta/insights/2022/02/react-native/react_hero.png?as=0&iar=0&w=1200&rev=61e1dad3af7e465e9544cf8490237772&hash=0AD31383BCBA1DA1C88546327312BA33"
     }
   ],

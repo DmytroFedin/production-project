@@ -48,7 +48,7 @@ const gapClasses: Record<FlexGap, string> = {
 
 export const Flex = ({
   className, children, justify = 'start', align = 'center', direction = 'row', gap, max,
-  wrap,
+  wrap, ...otherProps
 }: FlexProps) => {
   const classes = [
     className,
@@ -62,7 +62,7 @@ export const Flex = ({
     [cls.wrap]: wrap,
   };
   return (
-    <div className={classNames(cls.Flex, mods, classes)}>
+    <div className={classNames(cls.Flex, mods, classes)} {...otherProps}>
       {children}
     </div>
   );

@@ -23,7 +23,7 @@ interface RatingCardProps {
 }
 
 export const RatingCard = memo(({
-  className, feedbackTitle, hasFeedback, onAccept, onCancel, title, rate = -3,
+  className, feedbackTitle, hasFeedback, onAccept, onCancel, title, rate = 0,
 }: RatingCardProps) => {
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -65,19 +65,28 @@ export const RatingCard = memo(({
   const modalContent = (
     <VStack max gap="30">
       <Text title={feedbackTitle} />
-      <Input value={feedback} onChange={setFeedback} title={t('Leave_review')} />
+      <Input data-testid="RatingCard.Input" value={feedback} onChange={setFeedback} title={t('Leave_review')} />
       <HStack max justify="between">
-        <Button ariaLabel="Send with feedback button" onClick={onAcceptHandler}>
+        <Button
+          data-testid="RatingCard.Send"
+          ariaLabel="Send with feedback button"
+          onClick={onAcceptHandler}
+        >
           {t('Send_btn')}
         </Button>
-        <Button ariaLabel="Send without feedback button" onClick={onCancelHandler} theme={ButtonTheme.OUTLINED_RED}>
+        <Button
+          data-testid="RatingCard.Close"
+          ariaLabel="Send without feedback button"
+          onClick={onCancelHandler}
+          theme={ButtonTheme.OUTLINED_RED}
+        >
           {t('Close_btn')}
         </Button>
       </HStack>
     </VStack>
   );
   return (
-    <Card max className={classNames('', {}, [className])}>
+    <Card data-testid="RatingCard" max className={classNames('', {}, [className])}>
       <VStack max gap="5" align="center">
         <Text title={starsCount > 0 ? t('Review_thanks_title') : title} />
         <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />

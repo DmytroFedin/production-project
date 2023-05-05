@@ -37,14 +37,22 @@ const AddNewComment = (({ className, onSendComment }: AddNewCommentProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <HStack max className={classNames(cls.AddNewComment, {}, [className])}>
+      <HStack data-testid="AddNewComment.Input" max className={classNames(cls.AddNewComment, {}, [className])}>
         <Input
           className={cls.input}
           value={text}
           onChange={onCommentTextChange}
           title={t('Add_comment_title')}
+          data-testid="AddNewComment"
         />
-        <Button ariaLabel="Add comment button" onClick={onSendHandler}>{t('Send_btn')}</Button>
+        <Button
+          data-testid="AddNewComment.Button"
+          ariaLabel="Add comment button"
+          onClick={onSendHandler}
+        >
+          {t('Send_btn')}
+
+        </Button>
       </HStack>
     </DynamicModuleLoader>
   );

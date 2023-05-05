@@ -105,7 +105,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
   }
 
   return (
-    <VStack max className={classNames(cls.ArticleListWrapper, {}, [className])}>
+    <VStack data-testid="ArticlesList" max className={classNames(cls.ArticleListWrapper, {}, [className])}>
       {view === ArticleView.PLATE ? (
         <Virtuoso
           style={{ width: '100%', height: '100%' }}

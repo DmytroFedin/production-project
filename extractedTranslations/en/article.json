@@ -1,25 +1,6 @@
 {
-  "All_tab_title": "",
-  "Article_Error": "",
-  "Article_Recommendation": "",
+  "Article_Error": "Couldn`t load article",
+  "Article_Recommendation": "Our Recommendation",
   "Article_not_found": "",
-  "Articles_loading_error": "",
-  "Create_article_header": "",
-  "Economics_tab_title": "",
-  "Edit_article": "",
-  "Edit_article_header": "",
-  "IT_tab_title": "",
-  "Order_select": "",
-  "Rate_Article_feedback_title": "",
-  "Rate_Article_title": "",
-  "Read_article_Btn": "",
-  "Return_to_articles": "",
-  "Science_tab_title": "",
-  "Search": "",
-  "Sort_ascending": "",
-  "Sort_date": "",
-  "Sort_descending": "",
-  "Sort_select": "",
-  "Sort_title": "",
-  "Sort_views": ""
+  "Read_article_Btn": ""
 }

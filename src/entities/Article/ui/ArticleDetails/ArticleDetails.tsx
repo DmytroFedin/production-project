@@ -92,7 +92,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleProps) => {
     );
   } else if (error) {
     content = (
-      <HStack max align="center">
+      <HStack max justify="center">
         <Text
           align={TextAlign.CENTER}
           title={t('Article_Error')}
@@ -112,7 +112,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleProps) => {
             className={cls.avatar}
           />
         </HStack>
-        <VStack max gap="5" align="start">
+        <VStack data-testid="ArticleDetails.Info" max gap="5" align="start">
           <Text
             className={cls.title}
             title={article?.title}
