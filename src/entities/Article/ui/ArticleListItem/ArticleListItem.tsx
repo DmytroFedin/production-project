@@ -36,7 +36,6 @@ export const ArticleListItem = memo(({
   const date = <Text className={cls.date} text={article.createdAt} />;
   const image = (
     <AppImage
-      // errorFallback={}
       fallback={<Skeleton className={cls.image} height={view === 'PLATE' ? 250 : '100%'} />}
       className={cls.image}
       src={article.img}

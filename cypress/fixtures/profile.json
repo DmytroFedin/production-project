@@ -1,0 +1,11 @@
+{
+  "id": "1",
+  "firstname": "test",
+  "lastname": "test",
+  "age": 465,
+  "currency": "UAH",
+  "country": "Poland",
+  "city": "Warsaw",
+  "username": "testUser",
+  "avatar": "https://cdn.kinandcarta.com/-/media-assets/images/kincarta/insights/2022/02/react-native/react_hero.png?as=0&iar=0&w=1200&rev=61e1dad3af7e465e9544cf8490237772&hash=0AD31383BCBA1DA1C88546327312BA33"
+}
